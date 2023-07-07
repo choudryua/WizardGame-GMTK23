@@ -540,7 +540,6 @@ public class MovementController : MonoBehaviour
     }
     #endregion
 
-
     #region EDITOR METHODS
     private void OnDrawGizmosSelected()
     {

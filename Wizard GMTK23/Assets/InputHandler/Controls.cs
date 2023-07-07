@@ -400,6 +400,63 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Familar"",
+            ""id"": ""932ba631-7ad5-47dc-bbde-3254802c5e89"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3a8e9eb-726a-4ba5-ad01-df7f26ffbc73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Button"",
+                    ""id"": ""79dc27e7-caec-4ef9-9221-7618eab42d17"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""39ec1aee-6a9f-4b3d-b32e-116d3f17f10b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""bf72c1ce-b4db-42cf-8212-e891af95804a"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40de5485-afcf-42e9-a95c-e705e2d05e31"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -486,6 +543,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Menu_Down = m_Menu.FindAction("Down", throwIfNotFound: true);
         m_Menu_Left = m_Menu.FindAction("Left", throwIfNotFound: true);
         m_Menu_Right = m_Menu.FindAction("Right", throwIfNotFound: true);
+        // Familar
+        m_Familar = asset.FindActionMap("Familar", throwIfNotFound: true);
+        m_Familar_Shoot = m_Familar.FindAction("Shoot", throwIfNotFound: true);
+        m_Familar_Move = m_Familar.FindAction("Move", throwIfNotFound: true);
+        m_Familar_Menu = m_Familar.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -755,6 +817,68 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Familar
+    private readonly InputActionMap m_Familar;
+    private List<IFamilarActions> m_FamilarActionsCallbackInterfaces = new List<IFamilarActions>();
+    private readonly InputAction m_Familar_Shoot;
+    private readonly InputAction m_Familar_Move;
+    private readonly InputAction m_Familar_Menu;
+    public struct FamilarActions
+    {
+        private @Controls m_Wrapper;
+        public FamilarActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Familar_Shoot;
+        public InputAction @Move => m_Wrapper.m_Familar_Move;
+        public InputAction @Menu => m_Wrapper.m_Familar_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_Familar; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(FamilarActions set) { return set.Get(); }
+        public void AddCallbacks(IFamilarActions instance)
+        {
+            if (instance == null || m_Wrapper.m_FamilarActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_FamilarActionsCallbackInterfaces.Add(instance);
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
+        }
+
+        private void UnregisterCallbacks(IFamilarActions instance)
+        {
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
+        }
+
+        public void RemoveCallbacks(IFamilarActions instance)
+        {
+            if (m_Wrapper.m_FamilarActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IFamilarActions instance)
+        {
+            foreach (var item in m_Wrapper.m_FamilarActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_FamilarActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public FamilarActions @Familar => new FamilarActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -822,5 +946,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IFamilarActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

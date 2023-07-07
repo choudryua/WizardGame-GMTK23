@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
 {
     public static InputHandler instance;
 
+    private gameEngine gameEngine;
     private Controls controls;
 
     //debug Objects needed here
@@ -44,7 +45,10 @@ public class InputHandler : MonoBehaviour
 
     public Action<InputArgs> OnRightPressed; //right
 
+    //familear inputs
+    public Action<InputArgs> OnShootPressed; //shoot
 
+    private Vector2 onMove; //shoot
     // Start is called before the first frame update
     void Awake()
     {
@@ -66,25 +70,25 @@ public class InputHandler : MonoBehaviour
 
         #region Assign Inputs
 
-        #region player
-        //controls.(actionmap).(action).performed += ctx => On(actionpressed/released)(new InputArgs { context = ctx});
-        controls.Player.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //menu
+        /*        #region player
+                //controls.(actionmap).(action).performed += ctx => On(actionpressed/released)(new InputArgs { context = ctx});
+                controls.Player.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //menu
 
-        controls.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<float>(); //movement
-        controls.Player.Movement.canceled += ctx => moveInput = 0;
+                controls.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<float>(); //movement
+                controls.Player.Movement.canceled += ctx => moveInput = 0;
 
-        controls.Player.Jump.performed += ctx => OnJumpPressed(new InputArgs { context = ctx }); //jump
-        controls.Player.JumpUp.performed += ctx => OnJumpReleased(new InputArgs { context = ctx });
+                controls.Player.Jump.performed += ctx => OnJumpPressed(new InputArgs { context = ctx }); //jump
+                controls.Player.JumpUp.performed += ctx => OnJumpReleased(new InputArgs { context = ctx });
 
-        controls.Player.Crouch.performed += ctx => OnCrouchPressed(new InputArgs { context = ctx }); //crouch
-        controls.Player.CrouchUp.performed += ctx => OnCrouchReleased(new InputArgs { context = ctx });
+                controls.Player.Crouch.performed += ctx => OnCrouchPressed(new InputArgs { context = ctx }); //crouch
+                controls.Player.CrouchUp.performed += ctx => OnCrouchReleased(new InputArgs { context = ctx });
 
-        controls.Player.Interact.performed += ctx => OnInteractPressed(new InputArgs { context = ctx }); //interact
-        controls.Player.InteractUp.performed += ctx => OnInteractReleased(new InputArgs { context = ctx });
-        #endregion
+                controls.Player.Interact.performed += ctx => OnInteractPressed(new InputArgs { context = ctx }); //interact
+                controls.Player.InteractUp.performed += ctx => OnInteractReleased(new InputArgs { context = ctx });
+                #endregion*/
 
         #region Menu
-/*        controls.Menu.Player.performed += ctx => OnPlayerPressed(new InputArgs { context = ctx }); //jump
+        controls.Menu.Player.performed += ctx => OnPlayerPressed(new InputArgs { context = ctx }); //switch to player from menu
 
         controls.Menu.Back.performed += ctx => OnBackPressed(new InputArgs { context = ctx }); //Back
 
@@ -96,13 +100,18 @@ public class InputHandler : MonoBehaviour
 
         controls.Menu.Left.performed += ctx => OnLeftPressed(new InputArgs { context = ctx }); //Left
 
-        controls.Menu.Right.performed += ctx => OnRightPressed(new InputArgs { context = ctx }); //Right*/
+        controls.Menu.Right.performed += ctx => OnRightPressed(new InputArgs { context = ctx }); //Right
+        #endregion
+
+        #region Familar
+        controls.Familar.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //to menu
+        controls.Familar.Menu.performed += ctx => OnShootPressed(new InputArgs { context = ctx }); // shoot
         #endregion
 
         #endregion
 
-/*        instance.controls.Player.Enable();
-        instance.controls.Menu.Disable();*/
+        instance.controls.Menu.Enable();
+        instance.controls.Familar.Disable();
     }
 
     // Update is called once per frame
