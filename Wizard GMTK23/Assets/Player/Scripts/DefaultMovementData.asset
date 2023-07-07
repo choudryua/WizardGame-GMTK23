@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182e948c9f39d042be1e7ff1d93feea, type: 3}
+  m_Name: DefaultMovementData
+  m_EditorClassIdentifier: 
+  gravityStrength: -12
+  gravityScale: 1.2232416
+  fallGravityMult: 2
+  maxFallSpeed: 18
+  fastFallGravityMult: 1
+  maxFastFallSpeed: 20
+  runMaxSpeed: 5.5
+  runAcceleration: 5.5
+  runAccelAmount: 50
+  runDecceleration: 5.5
+  runDeccelAmount: 50
+  accelInAir: 1
+  deccelInAir: 1
+  doConserveMomentum: 0
+  jumpHeight: 1.5
+  jumpTimeToApex: 0.5
+  jumpForce: 6
+  jumpCutGravityMult: 3.5
+  jumpHangGravityMult: 1
+  jumpHangTimeThreshold: 0
+  jumpHangAccelerationMult: 1
+  jumpHangMaxSpeedMult: 1
+  wallJumpForce: {x: 50, y: 10}
+  wallJumpRunLerp: 1
+  wallJumpTime: 1.5
+  doTurnOnWallJump: 1
+  slideSpeed: -5
+  slideAccel: 5
+  coyoteTime: 0.036
+  jumpInputBufferTime: 0.5
+  dashAmount: 0
+  dashSpeed: 0
+  dashSleepTime: 0
+  dashAttackTime: 0
+  dashEndTime: 0
+  dashEndSpeed: {x: 0, y: 0}
+  dashEndRunLerp: 0
+  dashRefillTime: 0
+  dashInputBufferTime: 0
