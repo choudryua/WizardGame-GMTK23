@@ -12,6 +12,7 @@ public class GameEngine : MonoBehaviour
     public bool isMainMenu;
     public Pause pauseManager;
     public bool mainMenuUnloaded;
+    public bool roomStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class GameEngine : MonoBehaviour
         }
         else if (testing)
         {
+            roomStart = true;
             isPaused = false;
             pauseManager.UnPauseGame();
         }
@@ -51,6 +53,7 @@ public class GameEngine : MonoBehaviour
         player.GetComponent<Renderer>().enabled = true;
         familar.GetComponent<Renderer>().enabled = true;
         isMainMenu = false;
+        roomStart = true;
     }
     private void OnMenuPressed()
     {

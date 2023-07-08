@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 799348899}
-  gameEngine: {fileID: 0}
+  gameEngine: {fileID: 243347648}
   roomData: {fileID: 0}
   curDestinationPos: {x: 1, y: 0}
   tolerance: 0.05
@@ -940,6 +940,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   enemyTag: Enemy
+  curSpawnPoint: {x: 0, y: 0}
 --- !u!1 &1093174857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 745474098}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu
@@ -1571,6 +1572,10 @@ PrefabInstance:
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 243347646}
+    - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
+      propertyPath: mainMenuUnloaded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 999588845913931140, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1666,7 +1671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179764, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Constraints

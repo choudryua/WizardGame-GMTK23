@@ -29,7 +29,8 @@ public class AiMovement : MonoBehaviour
     private LayerMask destinationLayer;
     [SerializeField]
     private string enemyTag;
-
+    [SerializeField]
+    private Vector2 curSpawnPoint;
     private float jumpTimeDelay = 3;
     float timer;
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(gameEngine.roomStart);
         timer += Time.deltaTime;
 
         if (roomData == null)
@@ -51,10 +53,17 @@ public class AiMovement : MonoBehaviour
         try
         {
             curDestinationPos = roomData.currentPlayerGoal;
+            curSpawnPoint = roomData.spawnPoint;
         }
         catch(Exception e)
         {
             curDestinationPos = new Vector2(transform.position.x, transform.position.y);
+            curSpawnPoint = new Vector2(0, 0);
+        }
+        if (gameEngine.roomStart == true)
+        {
+            transform.position = curSpawnPoint;
+            gameEngine.roomStart = false;
         }
         if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
         {
@@ -101,6 +110,7 @@ public class AiMovement : MonoBehaviour
                 timer = 0;
             }
         }
+        print(disToX);
         if (disToX < 0)
         {
             LeftRightMovement(-1);
@@ -114,6 +124,7 @@ public class AiMovement : MonoBehaviour
     private void LeftRightMovement(float x)
     {
         movementController._moveInput.x = x;
+        print(movementController._moveInput.x);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
