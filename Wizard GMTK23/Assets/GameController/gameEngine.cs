@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEngine : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class GameEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isMainMenu)
+        {
+            SceneManager.UnloadSceneAsync("MainMenu");
+        }
     }
 
     public void GameStart()

@@ -36,11 +36,12 @@ public class SceneChanger : MonoBehaviour
     }
     public void SceneSelect(string sceneToChangeTo)
     {
+        gameEngine = FindAnyObjectByType<GameEngine>();
         if (sceneToChangeTo == "Level1")
         {
             gameEngine.GameStart();
         }
-        Console.WriteLine("THAFHWFAH");
+        Console.WriteLine(SceneManager.sceneCount);
         SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(2));
     }
