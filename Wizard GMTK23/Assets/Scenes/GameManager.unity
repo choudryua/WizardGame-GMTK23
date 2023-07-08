@@ -937,7 +937,7 @@ MonoBehaviour:
   roomData: {fileID: 0}
   curDestinationPos: {x: 1, y: 0}
   tolerance: 0.05
-  toleranceY: 0
+  toleranceY: 2
   destinationCheckSize: {x: 2, y: 3}
   destinationCheckTransform: {fileID: 411768735}
   destinationLayer:
@@ -1616,11 +1616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.z
