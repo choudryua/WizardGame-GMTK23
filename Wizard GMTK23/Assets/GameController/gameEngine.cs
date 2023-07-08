@@ -10,6 +10,7 @@ public class GameEngine : MonoBehaviour
     public bool testing;
     public bool isMainMenu;
     public Pause pauseManager;
+    public bool mainMenuUnloaded;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameEngine : MonoBehaviour
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             isPaused = true;
             isMainMenu = true;
+            mainMenuUnloaded = false;
         }
         else if (testing)
         {
@@ -32,9 +34,10 @@ public class GameEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isMainMenu)
+        if (!isMainMenu && !mainMenuUnloaded)
         {
             SceneManager.UnloadSceneAsync("MainMenu");
+            mainMenuUnloaded = true;
         }
     }
 

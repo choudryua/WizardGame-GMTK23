@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.Android.LowLevel;
 using UnityEngine.Rendering;
 using System;
+using Unity.PlasticSCM.Editor.WebApi;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class SceneChanger : MonoBehaviour
     private string pauseMenuScene;
     [SerializeField]
     private bool testing;
-
+    private string curGameScene;
     private void Start()
     {
         if(!testing)
@@ -43,7 +44,16 @@ public class SceneChanger : MonoBehaviour
         }
         Console.WriteLine(SceneManager.sceneCount);
         SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(2));
+        try
+        {
+            SceneManager.UnloadSceneAsync(curGameScene);
+        }
+        catch(Exception e)
+        {
+
+        }
+        curGameScene = sceneToChangeTo;
+        print(curGameScene);
     }
     public void QuitGame()
     {
