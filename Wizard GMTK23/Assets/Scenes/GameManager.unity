@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 253852592}
+  EventManager: {fileID: 1237229532}
 --- !u!114 &243347647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,10 +255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff6dc59b9e56854a8cef460f9501e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEngine: {fileID: 0}
+  gameEngine: {fileID: 243347648}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 1
+  testing: 0
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
@@ -1038,7 +1039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1237229533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,7 +1557,7 @@ PrefabInstance:
       objectReference: {fileID: 634597085}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu
