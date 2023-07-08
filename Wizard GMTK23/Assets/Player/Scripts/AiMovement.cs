@@ -48,7 +48,17 @@ public class AiMovement : MonoBehaviour
         {
             roomData = FindAnyObjectByType<RoomData>();
         }
-        curDestinationPos = roomData.currentPlayerGoal;
+        try
+        {
+            curDestinationPos = roomData.currentPlayerGoal;
+        }
+        catch(Exception e)
+        {
+        }
+        finally
+        {
+            curDestinationPos = new Vector2(transform.position.x, transform.position.y);
+        }
         if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
         {
             Vector3 tempDes = new Vector3(curDestinationPos.x, curDestinationPos.y, 0);
@@ -68,8 +78,10 @@ public class AiMovement : MonoBehaviour
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
-                    throw;
+                }
+                finally
+                {
+
                 }
             }
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour
 {
+    public GameObject player;
     public bool isPaused;
     public bool testing;
     public bool isMainMenu;
@@ -12,8 +13,10 @@ public class GameEngine : MonoBehaviour
     void Start()
     {
         if (!testing){
+            player.GetComponent<Renderer>().enabled = false;
             isPaused = true;
             pauseManager.PauseGame();
+            isMainMenu = true;
         }
         else if (testing)
         {
@@ -33,6 +36,8 @@ public class GameEngine : MonoBehaviour
     {
         isPaused = false;
         pauseManager.UnPauseGame();
+        player.GetComponent<Renderer>().enabled = true;
+        isMainMenu = false;
     }
     private void OnMenuPressed()
     {
