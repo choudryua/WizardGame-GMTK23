@@ -20,8 +20,8 @@ public class GameEngine : MonoBehaviour
             isPaused = false;
             pauseManager.UnPauseGame();
         }
-        InputHandler.instance.OnJumpPressed += args => OnMenuPressed();
-        InputHandler.instance.OnJumpPressed += args => OnPlayerPressed();
+        InputHandler.instance.OnMenuPressed += args => OnMenuPressed();
+        InputHandler.instance.OnPlayerPressed += args => OnPlayerPressed();
     }
 
     // Update is called once per frame
@@ -36,19 +36,19 @@ public class GameEngine : MonoBehaviour
     }
     private void OnMenuPressed()
     {
-        if (isPaused && !isMainMenu) 
+        if (!isPaused && !isMainMenu) 
         {
             pauseManager.OnPauseMenu();
-            isPaused = false;
+            isPaused = true;
         }
     }
 
     private void OnPlayerPressed()
     {
-        if (!isPaused && !isMainMenu)
+        if (isPaused && !isMainMenu)
         {
             pauseManager.UnPauseMenu();
-            isPaused = true;
+            isPaused = false;
         }
     }
 

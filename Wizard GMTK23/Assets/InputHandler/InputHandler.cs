@@ -106,7 +106,7 @@ public class InputHandler : MonoBehaviour
 
         #region Familar
         controls.Familar.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //to menu
-        controls.Familar.Menu.performed += ctx => OnShootPressed(new InputArgs { context = ctx }); // shoot
+        controls.Familar.Shoot.performed += ctx => OnShootPressed(new InputArgs { context = ctx }); // shoot
         #endregion
 
         #endregion
