@@ -43,7 +43,7 @@ public class GameEngine : MonoBehaviour
         }
     }
 
-    private void OnPlayerPressed()
+    public void OnPlayerPressed()
     {
         if (isPaused && !isMainMenu)
         {
