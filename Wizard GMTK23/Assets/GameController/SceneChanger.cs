@@ -9,7 +9,7 @@ using System;
 
 public class SceneChanger : MonoBehaviour
 {
-    private gameEngine gameEngine;
+    public GameEngine gameEngine;
 
     [SerializeField]
     private string mainMenuScene;
@@ -23,7 +23,6 @@ public class SceneChanger : MonoBehaviour
         if(!testing)
         {
             SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
-            SceneManager.LoadScene(pauseMenuScene, LoadSceneMode.Additive);
         }
     }
     void Update()
@@ -36,6 +35,10 @@ public class SceneChanger : MonoBehaviour
     }
     public void SceneSelect(string sceneToChangeTo)
     {
+        if (sceneToChangeTo == "Level1")
+        {
+            gameEngine.GameStart();
+        }
         Console.WriteLine("THAFHWFAH");
         SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(2));

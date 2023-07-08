@@ -6,13 +6,22 @@ public class Pause : MonoBehaviour
 {
     public GameObject PausePanel;
 
-    public void OnPause()
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1;
+    }
+    public void OnPauseMenu()
     {
         PausePanel.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public void UnPause()
+    public void UnPauseMenu()
     {
         PausePanel.SetActive(false);
         Time.timeScale = 1;

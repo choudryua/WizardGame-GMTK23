@@ -9,7 +9,7 @@ public class InputHandler : MonoBehaviour
 {
     public static InputHandler instance;
 
-    private gameEngine gameEngine;
+    public GameEngine gameEngine;
     private Controls controls;
 
     //debug Objects needed here
