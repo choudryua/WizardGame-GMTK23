@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class AiMovement : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class AiMovement : MonoBehaviour
     private MovementController movementController;
     [SerializeField]
     private GameEngine gameEngine;
+    //room data
     // pos sys
+    [SerializeField]
     private Vector2 curDestinationPos;
-
+    [SerializeField]
+    private float tolerance;
     [SerializeField]
     private Vector2 destinationCheckSize;
     [SerializeField]
@@ -30,20 +34,38 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
+        if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
         {
-            MoveCharacter(curDestinationPos);
+            Vector3 tempDes = new Vector3(curDestinationPos.x, curDestinationPos.y, 0);
+            bool isValid = Math.Abs(this.transform.position.x - tempDes.x) <= tolerance;
+            if (!isValid) 
+            {
+                MoveCharacter(curDestinationPos);
+
+            }
         }
         
     }
 
     private void MoveCharacter(Vector2 destination)
     {
-
+        float disToX = destination.x - this.transform.position.x;
+        if (this.transform.position.x != destination.x)
+        {
+            if (disToX < 0)
+            {
+                LeftRightMovement(-1);
+            }
+            else if (disToX > 0)
+            {
+                LeftRightMovement(1);
+            }
+        }
     }
 
-    private void LeftRightMovement(int x)
+    private void LeftRightMovement(float x)
     {
+        print("PWEARSE");
         movementController._moveInput.x = x;
     }
 
@@ -51,7 +73,7 @@ public class AiMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(enemyTag))
         {
-            Console.WriteLine("oohnoo :3");
+            print("oohnoo :3");
                 //gameEngine.reset level();
         }
     }
