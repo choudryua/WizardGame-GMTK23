@@ -14,8 +14,9 @@ public class GameEngine : MonoBehaviour
     {
         if (!testing){
             player.GetComponent<Renderer>().enabled = false;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             isPaused = true;
-            pauseManager.PauseGame();
             isMainMenu = true;
         }
         else if (testing)
@@ -34,8 +35,9 @@ public class GameEngine : MonoBehaviour
 
     public void GameStart()
     {
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         isPaused = false;
-        pauseManager.UnPauseGame();
         player.GetComponent<Renderer>().enabled = true;
         isMainMenu = false;
     }
