@@ -52,6 +52,7 @@ public class InputHandler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameEngine = FindFirstObjectByType<GameEngine>();
         //get debugger and gameControl here
 
         #region Singleton
