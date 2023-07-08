@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameEngine : MonoBehaviour
 {
     public GameObject player;
+    public GameObject familar;
     public bool isPaused;
     public bool testing;
     public bool isMainMenu;
@@ -16,6 +17,7 @@ public class GameEngine : MonoBehaviour
     {
         if (!testing){
             player.GetComponent<Renderer>().enabled = false;
+            familar.GetComponent<Renderer>().enabled = false;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             isPaused = true;
@@ -47,6 +49,7 @@ public class GameEngine : MonoBehaviour
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         isPaused = false;
         player.GetComponent<Renderer>().enabled = true;
+        familar.GetComponent<Renderer>().enabled = true;
         isMainMenu = false;
     }
     private void OnMenuPressed()
