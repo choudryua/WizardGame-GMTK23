@@ -5,82 +5,41 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.Android.LowLevel;
 using UnityEngine.Rendering;
+using System;
 
 public class SceneChanger : MonoBehaviour
 {
-    private GameObject debugObject;
     private gameEngine gameEngine;
 
-    private bool clicked;
-
     [SerializeField]
-    private FamilarMovementController playerController;
-
+    private string mainMenuScene;
     [SerializeField]
-    private Button relatedUiButton;
+    private string pauseMenuScene;
     [SerializeField]
-    private bool isUiButton;
-    [SerializeField]
-    private bool isGameInteractable;
-
-    [SerializeField]
-    private Scene curScene;
-
-    [SerializeField]
-    private string sceneToTransition;
-
-    [SerializeField]
-    public Transform InteractCheckPoint;
-    [SerializeField] 
-    public Vector2 InteractCheckSize;
-    [SerializeField] 
-    public LayerMask CameraLayer;
+    private bool testing;
 
     private void Start()
     {
-        clicked = false;
-        curScene = SceneManager.GetActiveScene();
-        debugObject = GameObject.FindGameObjectWithTag("Debugger");
-        gameEngine = debugObject.GetComponent<gameEngine>();
+        if(!testing)
+        {
+            SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
+            SceneManager.LoadScene(pauseMenuScene, LoadSceneMode.Additive);
+        }
     }
     void Update()
     {
-        if (isGameInteractable)
-        {
-            if (Physics2D.OverlapBox(InteractCheckPoint.position, InteractCheckSize, 0, CameraLayer))
-            {
-                if (playerController.isInteracting == true)
-                {
-                    SceneSelect();
-                }
-            }
-        }
-        else if (isUiButton && clicked)
-        {
-            relatedUiButton.onClick.AddListener(OnClick);
-        }
+
     }
-    private void OnClick()
+    public void OnClick(string newScene)
     {
-        clicked = true;
-        SceneSelect();
+        SceneSelect(newScene);
     }
-    public void SceneSelect()
+    public void SceneSelect(string sceneToChangeTo)
     {
-        SceneManager.LoadScene(sceneToTransition, LoadSceneMode.Additive);
+        Console.WriteLine("THAFHWFAH");
+        SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(2));
     }
-    public void OnGameStart()
-    {
-        SceneManager.LoadScene(sceneToTransition, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
-    }
-/*    public void OnDrawGizmos()
-    {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(InteractCheckPoint.position, InteractCheckSize);
-    }*/
     public void QuitGame()
     {
         Application.Quit();
