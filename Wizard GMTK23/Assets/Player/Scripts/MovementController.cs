@@ -44,7 +44,7 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region INPUT PARAMETERS
-    private Vector2 _moveInput;
+    public Vector2 _moveInput;
 
     public float LastPressedJumpTime { get; private set; }
     public float LastPressedDashTime { get; private set; }
