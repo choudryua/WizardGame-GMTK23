@@ -38,7 +38,6 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -49,11 +48,11 @@ TagManager:
   - name: Doodats
     uniqueID: 2370825275
     locked: 0
-  - name: Ground
-    uniqueID: 4219404997
-    locked: 0
   - name: Fog
     uniqueID: 3102647017
+    locked: 0
+  - name: Ground
+    uniqueID: 4219404997
     locked: 0
   - name: Player
     uniqueID: 2219071895
