@@ -1986,7 +1986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811182445}
   - component: {fileID: 811182446}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: GoalArea
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

@@ -766,7 +766,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2075895401
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 1319190152, guid: 7078ce22bcd64ab48b8d8af5d93c1d95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -934,13 +934,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementController: {fileID: 799348899}
   gameEngine: {fileID: 243347645}
+  roomData: {fileID: 0}
   curDestinationPos: {x: 1, y: 0}
   tolerance: 0.05
+  toleranceY: 0
   destinationCheckSize: {x: 2, y: 3}
   destinationCheckTransform: {fileID: 411768735}
   destinationLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   enemyTag: Enemy
 --- !u!1 &1093174857
 GameObject:
