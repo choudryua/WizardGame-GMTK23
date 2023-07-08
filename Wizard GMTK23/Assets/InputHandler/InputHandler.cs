@@ -50,9 +50,13 @@ public class InputHandler : MonoBehaviour
 
     private Vector2 onMove; //shoot
     // Start is called before the first frame update
-    void Awake()
+
+    private void Start()
     {
         gameEngine = FindFirstObjectByType<GameEngine>();
+    }
+    void Awake()
+    {
         //get debugger and gameControl here
 
         #region Singleton
