@@ -257,7 +257,7 @@ MonoBehaviour:
   gameEngine: {fileID: 0}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 0
+  testing: 1
 --- !u!1 &253852592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 634597085}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: pauseManager

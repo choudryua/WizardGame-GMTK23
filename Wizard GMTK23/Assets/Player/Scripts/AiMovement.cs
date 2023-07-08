@@ -54,9 +54,6 @@ public class AiMovement : MonoBehaviour
         }
         catch(Exception e)
         {
-        }
-        finally
-        {
             curDestinationPos = new Vector2(transform.position.x, transform.position.y);
         }
         if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
