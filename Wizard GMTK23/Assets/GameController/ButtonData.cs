@@ -38,6 +38,6 @@ public class ButtonData : MonoBehaviour
     public void OnClick()
     {
         Console.WriteLine("awf afdfasdfawfawf");
-        sceneChanger.OnClick(sceneToChangeTo);
+        sceneChanger.SceneSelect(sceneToChangeTo);
     }
 }

@@ -31,6 +31,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void OnClick(string newScene)
     {
+        print("please");
         SceneSelect(newScene);
     }
     public void SceneSelect(string sceneToChangeTo)
