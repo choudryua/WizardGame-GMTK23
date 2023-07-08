@@ -878,6 +878,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6854645, y: 1.7837875}
   m_EdgeRadius: 0
+--- !u!114 &799348899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5128922375634179722, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+  m_PrefabInstance: {fileID: 5128922375087148587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ded62416a63e4049a99736673cd2221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &799348903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98036f43625e55741bbba469fd2af6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 799348899}
 --- !u!1 &1093174857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1489,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5128922375634179722, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179723, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
