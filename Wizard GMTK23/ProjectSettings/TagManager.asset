@@ -14,15 +14,9 @@ TagManager:
   - UI
   - Environment
   - Background
-  - - PostProcessing
   - Destinations
   - Enemy
-  - Environment
-  - Background
   - PostProcessing
-  - Destinations
-  - Enemy
-  - 
   - 
   - 
   - 
@@ -49,7 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
   - name: Background
     uniqueID: 2920796171
     locked: 0
@@ -62,8 +55,6 @@ TagManager:
   - name: Fog
     uniqueID: 3102647017
     locked: 0
-=======
->>>>>>> 6a9c8a0a6e076a1e706ec12fc9d557227465678e
   - name: Player
     uniqueID: 2219071895
     locked: 0
