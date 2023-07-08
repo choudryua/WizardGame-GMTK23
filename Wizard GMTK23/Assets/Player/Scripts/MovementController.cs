@@ -380,8 +380,9 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region JUMP METHODS
-    private void Jump()
+    public void Jump()
     {
+        print("JUMPES");
         //Ensures we can't call Jump multiple times from one press
         LastPressedJumpTime = 0;
         LastOnGroundTime = 0;
