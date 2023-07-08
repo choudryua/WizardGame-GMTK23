@@ -110,19 +110,24 @@ public class InputHandler : MonoBehaviour
 
         #endregion
 
-        instance.controls.Menu.Enable();
-        instance.controls.Familar.Disable();
+        instance.controls.Menu.Disable();
+        instance.controls.Familar.Enable();
+/*        instance.controls.Player.Disable();*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if player
-            //instance.controls.Player.Enable();
-            //instance.controls.Menu.Disable();
-        //if menu
-            //instance.controls.Menu.Enable();
-            //instance.controls.Player.Disable();
+        if (gameEngine.isPaused)
+        {
+            instance.controls.Familar.Disable();
+            instance.controls.Menu.Enable();
+        }
+        else if (!gameEngine.isPaused) 
+        {
+            instance.controls.Familar.Enable();
+            instance.controls.Menu.Disable();
+        }
     }
 
     #region Properties

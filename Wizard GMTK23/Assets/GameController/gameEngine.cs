@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour
 {
-    private bool isPaused;
+    public bool isPaused;
+    public bool testing;
     public bool isMainMenu;
     public Pause pauseManager;
     // Start is called before the first frame update
     void Start()
     {
-        isPaused = true;
-        pauseManager.PauseGame();
+        if (!testing){
+            isPaused = true;
+            pauseManager.PauseGame();
+        }
+        else if (testing)
+        {
+            isPaused = false;
+            pauseManager.UnPauseGame();
+        }
         InputHandler.instance.OnJumpPressed += args => OnMenuPressed();
         InputHandler.instance.OnJumpPressed += args => OnPlayerPressed();
     }
