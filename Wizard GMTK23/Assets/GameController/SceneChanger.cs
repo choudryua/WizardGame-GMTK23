@@ -60,4 +60,9 @@ public class SceneChanger : MonoBehaviour
         Application.Quit();
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.UnloadSceneAsync(curGameScene);
+        SceneManager.LoadSceneAsync(curGameScene);
+    }
 }

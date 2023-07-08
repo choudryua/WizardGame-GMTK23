@@ -43,8 +43,7 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(gameEngine.roomStart);
-        timer += Time.deltaTime;
+        timer += Time.deltaTime; 
 
         if (roomData == null)
         {
@@ -95,7 +94,29 @@ public class AiMovement : MonoBehaviour
         {
             print("move to next room");
         }
-        
+        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x > 0)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(2, 0, 0));
+        }
+        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x < 0)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 0, 0));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder") && collision.isTrigger)
+        {
+            print("YIPEEE");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Laddder") && collision.isTrigger)
+        {
+
+        }
     }
 
     private void MoveCharacter(Vector2 destination)
@@ -110,29 +131,31 @@ public class AiMovement : MonoBehaviour
                 timer = 0;
             }
         }
-        print(disToX);
-        if (disToX < 0)
+        if (disToX < -0.7f)
         {
             LeftRightMovement(-1);
         }
-        else if (disToX > 0)
+        else if (disToX > 0.7)
         {
             LeftRightMovement(1);
         }
     }
 
+    private void MoveUpLadder()
+    {
+
+    }
     private void LeftRightMovement(float x)
     {
         movementController._moveInput.x = x;
-        print(movementController._moveInput.x);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(enemyTag))
         {
+            FindAnyObjectByType<SceneChanger>().RestartLevel();
             print("oohnoo :3");
-                //gameEngine.reset level();
         }
     }
     private void OnDrawGizmosSelected()
