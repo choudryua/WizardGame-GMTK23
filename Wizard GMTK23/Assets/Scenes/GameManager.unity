@@ -258,7 +258,7 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 0
+  testing: 1
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
