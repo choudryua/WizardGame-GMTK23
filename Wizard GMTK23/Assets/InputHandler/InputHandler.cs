@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
 {
     public static InputHandler instance;
 
+    public GameObject gameEngineObj;
     public GameEngine gameEngine;
     private Controls controls;
 
@@ -53,7 +54,7 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        gameEngine = FindFirstObjectByType<GameEngine>();
+        gameEngine = gameEngineObj.GetComponent<GameEngine>();
     }
     void Awake()
     {
