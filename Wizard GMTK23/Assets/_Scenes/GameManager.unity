@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level1Spawn: {x: -19.51, y: -9.11, z: 0}
-  level2Spawn: {x: -16.18, y: -8.46, z: 0}
+  level2Spawn: {x: -14.42, y: -9.91, z: 0}
   level3Spawn: {x: -19.99, y: 8.71, z: 0}
 --- !u!1 &253852592
 GameObject:
@@ -756,6 +756,11 @@ MonoBehaviour:
   DESPAWN_ANIMATION: Death
   IDLE_ANIMATION: Idle
   currentAnimaton: 
+--- !u!50 &799348910 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5128922375634179764, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+  m_PrefabInstance: {fileID: 5128922375087148587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237229532
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +842,11 @@ Transform:
 --- !u!4 &1314952300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5128922374440867200, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+  m_PrefabInstance: {fileID: 5128922375087148587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1331053396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 745474098, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
   m_PrefabInstance: {fileID: 5128922375087148587}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445334889
@@ -1292,7 +1302,7 @@ PrefabInstance:
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: familar
       value: 
-      objectReference: {fileID: 775949265}
+      objectReference: {fileID: 1331053396}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
       value: 0
@@ -1313,6 +1323,10 @@ PrefabInstance:
       propertyPath: testing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
+      propertyPath: playerRG
+      value: 
+      objectReference: {fileID: 799348910}
     - target: {fileID: 999588845913931140, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: m_RootOrder
       value: 1

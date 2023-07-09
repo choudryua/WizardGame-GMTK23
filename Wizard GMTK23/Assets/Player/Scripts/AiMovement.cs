@@ -39,6 +39,7 @@ public class AiMovement : MonoBehaviour
     float freezeYTimer;
     bool isClimbing = false;
     float originalGravity;
+    private float isClimbingTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,15 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isClimbing)
+        {
+            isClimbingTimer += Time.deltaTime;
+        }
+        if (isClimbingTimer > 4 && isClimbing)
+        {
+            isClimbing = false;
+            isClimbingTimer = 0;
+        }
         timer += Time.deltaTime;
         freezeYTimer -= Time.deltaTime;
         if (roomData == null)
@@ -146,6 +156,7 @@ public class AiMovement : MonoBehaviour
         if (collision.CompareTag("Ladder") && collision.isTrigger)
         {
             isClimbing = true;
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
