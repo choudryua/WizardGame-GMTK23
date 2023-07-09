@@ -879,32 +879,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
   m_PrefabInstance: {fileID: 5128922375087148587}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &799348898
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634597085}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.015902936, y: -0.23918909}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 2.4375}
-    newSize: {x: 5, y: 3.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6854645, y: 1.7132484}
-  m_EdgeRadius: 0
 --- !u!114 &799348899 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5128922375634179722, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
@@ -932,8 +906,8 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   roomData: {fileID: 0}
   curDestinationPos: {x: 1, y: 0}
-  tolerance: 0.05
-  toleranceY: 2
+  tolerance: 0.75
+  toleranceY: 1.25
   destinationCheckSize: {x: 2, y: 3}
   destinationCheckTransform: {fileID: 411768735}
   destinationLayer:
@@ -941,6 +915,22 @@ MonoBehaviour:
     m_Bits: 256
   enemyTag: Enemy
   curSpawnPoint: {x: 0, y: 0}
+--- !u!70 &799348907
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597085}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000009536743, y: -0.26185226}
+  m_Size: {x: 0.9640255, y: 1.689352}
+  m_Direction: 0
 --- !u!1 &1093174857
 GameObject:
   m_ObjectHideFlags: 0

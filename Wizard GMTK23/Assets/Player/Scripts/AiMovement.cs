@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Windows;
 
@@ -31,11 +32,15 @@ public class AiMovement : MonoBehaviour
     private string enemyTag;
     [SerializeField]
     private Vector2 curSpawnPoint;
-    private float jumpTimeDelay = 3;
+    private float jumpTimeDelay = 1f;
     float timer;
+    float freezeYTimer;
+    bool isClimbing = false;
+    float originalGravity;
     // Start is called before the first frame update
     void Start()
     {
+        originalGravity = GetComponent<Rigidbody2D>().gravityScale;
         roomData = FindAnyObjectByType<RoomData>();
         timer = 3;
     }
@@ -43,8 +48,8 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime; 
-
+        timer += Time.deltaTime;
+        freezeYTimer -= Time.deltaTime;
         if (roomData == null)
         {
             roomData = FindAnyObjectByType<RoomData>();
@@ -78,11 +83,13 @@ public class AiMovement : MonoBehaviour
             {
                 try
                 {
+                    print("update point");
                     roomData.updateCurGoal(roomData.curRouteListIndex + 1);
                     
                 }
                 catch (Exception e)
                 {
+                    print("update point");
                 }
                 finally
                 {
@@ -102,20 +109,34 @@ public class AiMovement : MonoBehaviour
         {
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 0, 0));
         }
+        if(isClimbing)
+        {
+            MoveUpLadder();
+        }
+        if (freezeYTimer > 0)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 0f;
+        }
+        if (freezeYTimer == 0)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = originalGravity;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder") && collision.isTrigger)
         {
-            print("YIPEEE");
+            isClimbing = true;
+            print("running");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Laddder") && collision.isTrigger)
+        if (collision.CompareTag("Ladder") && collision.isTrigger)
         {
-
+            isClimbing= false;
+            freezeYTimer = .5f;
         }
     }
 
@@ -123,7 +144,7 @@ public class AiMovement : MonoBehaviour
     {
         float disToX = destination.x - this.transform.position.x;
         float disToY = destination.y - this.transform.position.y;
-        if (disToY > 0)
+        if (disToY > toleranceY)
         {
             if (timer > jumpTimeDelay)
             {
@@ -131,11 +152,11 @@ public class AiMovement : MonoBehaviour
                 timer = 0;
             }
         }
-        if (disToX < -0.7f)
+        if (disToX < -tolerance)
         {
             LeftRightMovement(-1);
         }
-        else if (disToX > 0.7)
+        else if (disToX > tolerance)
         {
             LeftRightMovement(1);
         }
@@ -143,7 +164,7 @@ public class AiMovement : MonoBehaviour
 
     private void MoveUpLadder()
     {
-
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 11);
     }
     private void LeftRightMovement(float x)
     {
