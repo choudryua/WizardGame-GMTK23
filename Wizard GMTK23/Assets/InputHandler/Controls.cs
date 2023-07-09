@@ -422,6 +422,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""46e60f2e-3010-4105-b7d2-32c6031a5192"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -444,6 +453,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c4de473-5c79-4abf-8fa5-b9b503190dea"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -538,6 +558,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Familar = asset.FindActionMap("Familar", throwIfNotFound: true);
         m_Familar_Shoot = m_Familar.FindAction("Shoot", throwIfNotFound: true);
         m_Familar_Menu = m_Familar.FindAction("Menu", throwIfNotFound: true);
+        m_Familar_Restart = m_Familar.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -813,12 +834,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IFamilarActions> m_FamilarActionsCallbackInterfaces = new List<IFamilarActions>();
     private readonly InputAction m_Familar_Shoot;
     private readonly InputAction m_Familar_Menu;
+    private readonly InputAction m_Familar_Restart;
     public struct FamilarActions
     {
         private @Controls m_Wrapper;
         public FamilarActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Familar_Shoot;
         public InputAction @Menu => m_Wrapper.m_Familar_Menu;
+        public InputAction @Restart => m_Wrapper.m_Familar_Restart;
         public InputActionMap Get() { return m_Wrapper.m_Familar; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -834,6 +857,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IFamilarActions instance)
@@ -844,6 +870,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IFamilarActions instance)
@@ -933,5 +962,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
