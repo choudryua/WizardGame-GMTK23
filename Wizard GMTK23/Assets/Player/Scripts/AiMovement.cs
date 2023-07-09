@@ -175,15 +175,15 @@ public class AiMovement : MonoBehaviour
         movementController._moveInput.x = x;
     }
 
-/*    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(enemyTag))
         {
             isRespawning = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            Invoke("ResetLevelAfterDelay",3);
+            Invoke("ResetLevelAfterDelay", 3);
         }
-    }*/
+    }
     private void ResetLevelAfterDelay()
     {
         isRespawning = false;
