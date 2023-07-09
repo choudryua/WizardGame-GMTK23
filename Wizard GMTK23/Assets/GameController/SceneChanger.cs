@@ -19,7 +19,7 @@ public class SceneChanger : MonoBehaviour
     [SerializeField]
     private bool testing;
     [SerializeField]
-    private string curGameScene;
+    public string curGameScene;
     private void Start()
     {
         if(!testing)
@@ -61,6 +61,8 @@ public class SceneChanger : MonoBehaviour
         yield return load;
         SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
         curGameScene = sceneToChangeTo;
+        yield return new WaitForSeconds(3);
+        gameEngine.roomStart = true;
     }
     public void QuitGame()
     {
