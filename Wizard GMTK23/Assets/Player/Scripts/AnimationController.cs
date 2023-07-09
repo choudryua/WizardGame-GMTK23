@@ -41,7 +41,17 @@ public class AnimationController : MonoBehaviour
             AnimatePlayer();
         }
     }
-
+    void movePlayerFacing()
+    {
+        if(movementController._moveInput.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (movementController._moveInput.y < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
     void AnimatePlayer()
     {
         if(movementController._moveInput.x > 0 || movementController._moveInput.y < 0 || GetComponent<Rigidbody2D>().velocity.y > 0) 
