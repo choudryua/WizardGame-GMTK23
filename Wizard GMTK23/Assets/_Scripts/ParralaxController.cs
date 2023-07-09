@@ -15,13 +15,13 @@ public class ParralaxController : MonoBehaviour
     }
     void Update()
     {
-        Vector3 camOffset = cam.transform.position * modifier;
+        Vector3 camOffset = Camera.main.transform.position * modifier;
         transform.position = startPosition + new Vector3(camOffset.x, camOffset.y, 0);
-        if ((cam.transform.position.x - transform.position.x) > width)
+        if ((Camera.main.transform.position.x - transform.position.x) > width)
         {
             startPosition += new Vector3(width, 0, 0);
         }
-        if ((cam.transform.position.x - transform.position.x) < -width)
+        if ((Camera.main.transform.position.x - transform.position.x) < -width)
         {
             startPosition -= new Vector3(width, 0, 0);
         }

@@ -6093,8 +6093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU ARE A SPELL SHOOTER ANDD WTACH AS THE IWZARD WALKS AROUND AND THEN
-    YOU WANT TO HELO THE WIZARD AND YEAH
+  m_text: Guardian of the Witch
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2138853fa6168004b88872ba9ec65f71, type: 2}
   m_sharedMaterial: {fileID: 571556920828598956, guid: 2138853fa6168004b88872ba9ec65f71, type: 2}
@@ -6121,8 +6120,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -95,6 +95,7 @@ public class EnemyControl : MonoBehaviour
     {
         SoundManager.instance.PlaySound(_Deathclip);
         ChangeAnimationState("blowUp");
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }
