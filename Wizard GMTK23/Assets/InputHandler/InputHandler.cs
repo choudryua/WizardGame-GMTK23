@@ -48,7 +48,7 @@ public class InputHandler : MonoBehaviour
 
     //familear inputs
     public Action<InputArgs> OnShootPressed; //shoot
-
+    public Action<InputArgs> OnRestartPressed; //shoot
     private Vector2 onMove; //shoot
     // Start is called before the first frame update
 
@@ -95,7 +95,7 @@ public class InputHandler : MonoBehaviour
 
         #region Menu
         controls.Menu.Player.performed += ctx => OnPlayerPressed(new InputArgs { context = ctx }); //switch to player from menu
-
+/*
         controls.Menu.Back.performed += ctx => OnBackPressed(new InputArgs { context = ctx }); //Back
 
         controls.Menu.Select.performed += ctx => OnSelectPressed(new InputArgs { context = ctx }); //Select
@@ -106,12 +106,13 @@ public class InputHandler : MonoBehaviour
 
         controls.Menu.Left.performed += ctx => OnLeftPressed(new InputArgs { context = ctx }); //Left
 
-        controls.Menu.Right.performed += ctx => OnRightPressed(new InputArgs { context = ctx }); //Right
+        controls.Menu.Right.performed += ctx => OnRightPressed(new InputArgs { context = ctx }); //Right*/
         #endregion
 
         #region Familar
         controls.Familar.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //to menu
         controls.Familar.Shoot.performed += ctx => OnShootPressed(new InputArgs { context = ctx }); // shoot
+        //controls.Familar.Restart.performed += ctx => OnRestartPressed(new InputArgs { context = ctx }); //restart
         #endregion
 
         #endregion
