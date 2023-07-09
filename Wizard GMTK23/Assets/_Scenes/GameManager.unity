@@ -259,6 +259,7 @@ MonoBehaviour:
   mainMenuScene: MainMenu
   pauseMenuScene: 
   testing: 1
+  curGameScene: Level1
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
@@ -917,6 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98036f43625e55741bbba469fd2af6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRespawning: 0
   movementController: {fileID: 799348899}
   gameEngine: {fileID: 243347648}
   roomData: {fileID: 0}
@@ -960,6 +962,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 6690365409228845348, guid: a8cfd56a9b36895439e2776e5d8ce597, type: 3}
   curProjectile: {fileID: 0}
+--- !u!114 &799348909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56035f507ecd3ec47b622765367a157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RUN_ANIMATION: Run
+  DESPAWN_ANIMATION: Death
+  IDLE_ANIMATION: Idle
+  currentAnimaton: 
 --- !u!1 &1093174857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,7 +1756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.03
+      value: -9.85
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.z

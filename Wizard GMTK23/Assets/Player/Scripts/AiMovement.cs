@@ -8,6 +8,7 @@ using UnityEngine.Windows;
 
 public class AiMovement : MonoBehaviour
 {
+    public bool isRespawning;
     [SerializeField]
     private MovementController movementController;
     [SerializeField]
@@ -40,6 +41,7 @@ public class AiMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isRespawning = false;
         originalGravity = GetComponent<Rigidbody2D>().gravityScale;
         roomData = FindAnyObjectByType<RoomData>();
         timer = 3;
@@ -138,6 +140,12 @@ public class AiMovement : MonoBehaviour
             isClimbing= false;
             freezeYTimer = .5f;
         }
+        if (collision.gameObject.CompareTag(enemyTag))
+        {
+            isRespawning = true;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            Invoke("ResetLevelAfterDelay", 3);
+        }
     }
 
     private void MoveCharacter(Vector2 destination)
@@ -171,13 +179,22 @@ public class AiMovement : MonoBehaviour
         movementController._moveInput.x = x;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+/*    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(enemyTag))
         {
-            FindAnyObjectByType<SceneChanger>().RestartLevel();
-            print("oohnoo :3");
+            isRespawning = true;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            Invoke("ResetLevelAfterDelay",3);
         }
+    }*/
+    private void ResetLevelAfterDelay()
+    {
+        isRespawning = false;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        FindAnyObjectByType<SceneChanger>().RestartLevel();
+        print("oohnoo :3");
     }
     private void OnDrawGizmosSelected()
     {

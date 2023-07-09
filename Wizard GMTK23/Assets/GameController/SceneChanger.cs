@@ -18,6 +18,7 @@ public class SceneChanger : MonoBehaviour
     private string pauseMenuScene;
     [SerializeField]
     private bool testing;
+    [SerializeField]
     private string curGameScene;
     private void Start()
     {
@@ -62,7 +63,8 @@ public class SceneChanger : MonoBehaviour
 
     public void RestartLevel()
     {
+        print(curGameScene);
         SceneManager.UnloadSceneAsync(curGameScene);
-        SceneManager.LoadSceneAsync(curGameScene);
+        SceneManager.LoadScene(curGameScene);
     }
 }
