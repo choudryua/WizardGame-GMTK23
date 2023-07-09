@@ -4973,6 +4973,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 611962835}
     m_Modifications:
+    - target: {fileID: 1817391470366118082, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1817391470496830177, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.72
@@ -5028,6 +5032,10 @@ PrefabInstance:
     - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
@@ -10017,7 +10025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243ca4ab74ad0c44a99667c92c5a091c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  maxMoveSpeed: 10
+  smoothTime: 0.3
+  minDistance: 2
 --- !u!212 &963562381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10092,6 +10102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 611962835}
     m_Modifications:
+    - target: {fileID: 1817391470366118082, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1817391470496830177, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.03
@@ -10146,6 +10160,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19571,6 +19589,10 @@ PrefabInstance:
     - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817391470851680791, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cf99aff42e459479ab7d9b39c20128, type: 3}

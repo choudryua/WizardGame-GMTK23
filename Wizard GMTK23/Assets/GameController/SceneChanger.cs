@@ -18,6 +18,7 @@ public class SceneChanger : MonoBehaviour
     private string pauseMenuScene;
     [SerializeField]
     private bool testing;
+    [SerializeField]
     private string curGameScene;
     private void Start()
     {

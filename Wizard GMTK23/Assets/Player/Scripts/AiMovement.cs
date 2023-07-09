@@ -8,6 +8,7 @@ using UnityEngine.Windows;
 
 public class AiMovement : MonoBehaviour
 {
+    public bool isRespawning;
     [SerializeField]
     private MovementController movementController;
     [SerializeField]
@@ -40,6 +41,7 @@ public class AiMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isRespawning = false;
         originalGravity = GetComponent<Rigidbody2D>().gravityScale;
         roomData = FindAnyObjectByType<RoomData>();
         timer = 3;
@@ -175,9 +177,15 @@ public class AiMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(enemyTag))
         {
-            FindAnyObjectByType<SceneChanger>().RestartLevel();
-            print("oohnoo :3");
+            isRespawning = true;
+            Invoke("ResetLevelAfterDelay",3);
         }
+    }
+    private void ResetLevelAfterDelay()
+    {
+        isRespawning = false;
+        FindAnyObjectByType<SceneChanger>().RestartLevel();
+        print("oohnoo :3");
     }
     private void OnDrawGizmosSelected()
     {
