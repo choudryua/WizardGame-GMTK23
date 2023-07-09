@@ -393,15 +393,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
-                    "type": "Button",
-                    "id": "79dc27e7-caec-4ef9-9221-7618eab42d17",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Menu",
                     "type": "Button",
                     "id": "39ec1aee-6a9f-4b3d-b32e-116d3f17f10b",
