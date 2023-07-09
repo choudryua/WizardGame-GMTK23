@@ -44,23 +44,16 @@ public class SceneChanger : MonoBehaviour
         {
             gameEngine.GameStart();
         }
-        SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
-        try
-        {
-            SceneManager.UnloadSceneAsync(curGameScene);
-        }
-        catch(Exception e)
-        {
-
-        }
-        curGameScene = sceneToChangeTo;
-        print(curGameScene);
+        StartCoroutine(SceneSwitchFromObj(sceneToChangeTo));
     }
-    IEnumerator SceneSwitchFromObj(string obj)
+    IEnumerator SceneSwitchFromObj(string sceneToChangeTo)
     {
+
         AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
         yield return load;
-        SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
+        curGameScene = sceneToChangeTo;
+        gameEngine.roomStart = true;
     }
     public void QuitGame()
     {

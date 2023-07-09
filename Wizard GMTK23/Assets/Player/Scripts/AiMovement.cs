@@ -99,7 +99,6 @@ public class AiMovement : MonoBehaviour
         }
         else
         {
-            print("move to next room");
         }
         if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x > 0)
         {
@@ -128,7 +127,6 @@ public class AiMovement : MonoBehaviour
         if (collision.CompareTag("Ladder") && collision.isTrigger)
         {
             isClimbing = true;
-            print("running");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

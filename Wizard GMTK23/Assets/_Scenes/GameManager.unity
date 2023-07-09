@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76420742}
   - component: {fileID: 76420743}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
   mainMenuScene: MainMenu
   pauseMenuScene: 
   testing: 1
-  curGameScene: 
+  curGameScene: Level3
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411768735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: destinationCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 745474100}
   - component: {fileID: 745474101}
   - component: {fileID: 745474102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Familiar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,9 +921,9 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   roomData: {fileID: 0}
   curDestinationPos: {x: 1, y: 0}
-  tolerance: 0.75
+  tolerance: 1
   toleranceY: 1.25
-  destinationCheckSize: {x: 2, y: 3}
+  destinationCheckSize: {x: 1, y: 2}
   destinationCheckTransform: {fileID: 411768735}
   destinationLayer:
     serializedVersion: 2
@@ -984,7 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093174858}
   - component: {fileID: 1093174859}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,6 +1666,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5128922373743435389, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128922373984083774, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128922374168736822, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128922374440867201, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179722, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1701,6 +1717,10 @@ PrefabInstance:
     - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_IsActive

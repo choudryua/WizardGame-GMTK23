@@ -13,28 +13,43 @@ public class LevelChangerObj : MonoBehaviour
     public string sceneToChangeTo;
     [SerializeField]
     private string playerTag;
+    private bool hasSwitched;
+    [SerializeField]
+    private Vector2 checkSize;
+    [SerializeField]
+    private LayerMask playerLayer;
     // Start is called before the first frame update
     void Start()
     {
+        hasSwitched= false;
         sceneChanger = FindFirstObjectByType<SceneChanger>();
 
     }
-
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Player") && collision.isTrigger)
+        if (Physics2D.OverlapBox(transform.position, checkSize, 0, playerLayer) && hasSwitched == false)
         {
-            print("To next room");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(playerTag))
-        {
+            hasSwitched = true;
             sceneChanger.SceneSelect(sceneToChangeTo);
         }
     }
+    // Update is called once per frame
+/*    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(playerTag) && !hasSwitched)
+        {
+            hasSwitched = true;
+            sceneChanger.SceneSelect(sceneToChangeTo);
+        }
+    }*/
+/*    private void OnCollisionExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(playerTag) && !hasSwitched)
+        {
+            hasSwitched = true;
+            sceneChanger.SceneSelect(sceneToChangeTo);
+        }
+    }*/
     public void OnClick()
     {
     }
