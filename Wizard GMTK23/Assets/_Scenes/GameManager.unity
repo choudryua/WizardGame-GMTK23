@@ -258,7 +258,7 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 0
+  testing: 1
   curGameScene: 
 --- !u!114 &243347648 stripped
 MonoBehaviour:
@@ -1364,12 +1364,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 906ada2f95343a64dbd890963cc19602, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
-  Mute: 0
+  Loop: 1
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1595,7 +1595,7 @@ PrefabInstance:
       objectReference: {fileID: 745474098}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu
@@ -1706,6 +1706,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179764, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1748,11 +1752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.55
+      value: -16.99
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.85
+      value: -8.38
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179767, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.z
