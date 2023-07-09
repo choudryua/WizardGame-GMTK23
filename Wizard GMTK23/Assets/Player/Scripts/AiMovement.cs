@@ -56,7 +56,7 @@ public class AiMovement : MonoBehaviour
         {
             isClimbingTimer += Time.deltaTime;
         }
-        if (isClimbingTimer > 4 && isClimbing)
+        if (isClimbingTimer > 6 && isClimbing)
         {
             isClimbing = false;
             isClimbingTimer = 0;

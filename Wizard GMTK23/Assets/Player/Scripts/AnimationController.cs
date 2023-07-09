@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AnimationController : MonoBehaviour
 {
@@ -40,16 +41,17 @@ public class AnimationController : MonoBehaviour
         }
         if (animate == true)
         {
+            MovePlayerFacing();
             AnimatePlayer();
         }
     }
-    void movePlayerFacing()
+    void MovePlayerFacing()
     {
-        if(movementController._moveInput.x > 0)
+        if (movementController._moveInput.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if (movementController._moveInput.y < 0)
+        else if (movementController._moveInput.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
