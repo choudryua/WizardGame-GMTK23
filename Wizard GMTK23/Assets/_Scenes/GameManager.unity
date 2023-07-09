@@ -258,8 +258,8 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 1
-  curGameScene: Level1
+  testing: 0
+  curGameScene: 
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
@@ -810,8 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5aabadc4c234e0438bfce0b044bb1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTurnSpeed: 90
-  smoothTime: 0.3
 --- !u!1 &768253476
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,8 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682220a45375a98498146915cbf6c19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 6690365409228845348, guid: a8cfd56a9b36895439e2776e5d8ce597, type: 3}
-  curProjectile: {fileID: 0}
 --- !u!114 &799348909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,7 +1595,7 @@ PrefabInstance:
       objectReference: {fileID: 745474098}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu

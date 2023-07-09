@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FamilarMovementController : MonoBehaviour
 {
-    public bool isInteracting { get; private set; }
+/*    public bool isInteracting { get; private set; }
     private bool isShooting;
 
     [SerializeField]
@@ -34,5 +34,5 @@ public class FamilarMovementController : MonoBehaviour
             Instantiate(cube, worldPos, Quaternion.identity);
             isShooting = false;
         }
-    }
+    }*/
 }

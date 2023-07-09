@@ -24,6 +24,7 @@ public class GameEngine : MonoBehaviour
             isPaused = true;
             isMainMenu = true;
             mainMenuUnloaded = false;
+            roomStart = true;
         }
         else if (testing)
         {

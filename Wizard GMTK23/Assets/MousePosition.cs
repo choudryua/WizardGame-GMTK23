@@ -41,7 +41,7 @@ public class MousePosition : MonoBehaviour
     //   transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, maxMoveSpeed);
     //}
 
-    public Rigidbody2D rb;
+/*    public Rigidbody2D rb;
     public float turnSpeed = 45;
     public float moveSpeed = 5;
     void FixedUpdate()
@@ -57,5 +57,5 @@ public class MousePosition : MonoBehaviour
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(targetRotation), turnSpeed * Time.deltaTime));
 
         rb.MovePosition(rb.position + ((Vector2)transform.right * moveSpeed * Time.deltaTime));
-    }
+    }*/
 }
