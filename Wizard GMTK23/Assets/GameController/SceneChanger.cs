@@ -44,7 +44,6 @@ public class SceneChanger : MonoBehaviour
         {
             gameEngine.GameStart();
         }
-        Console.WriteLine(SceneManager.sceneCount);
         SceneManager.LoadScene(sceneToChangeTo, LoadSceneMode.Additive);
         try
         {
