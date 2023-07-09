@@ -1300,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 775949265}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: roomStart
@@ -1316,7 +1316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: mainMenuUnloaded
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 243347646, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: PausePanel
@@ -1328,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 1237229532}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: playerRG
@@ -1444,12 +1444,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.037183773
+      value: 0.00070987374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.99930847
+      value: 0.99999976
       objectReference: {fileID: 0}
     - target: {fileID: 1093174859, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Intensity
@@ -1457,19 +1469,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1093174859, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 42.789997
+      value: 46.340004
       objectReference: {fileID: 0}
     - target: {fileID: 1093174859, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 87.03
+      value: 80.55
       objectReference: {fileID: 0}
     - target: {fileID: 1093174859, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 1.3686643
+      value: 0.92706347
       objectReference: {fileID: 0}
     - target: {fileID: 1093174859, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 4.9636397
+      value: 3.516988
       objectReference: {fileID: 0}
     - target: {fileID: 5128922373743435389, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Layer
