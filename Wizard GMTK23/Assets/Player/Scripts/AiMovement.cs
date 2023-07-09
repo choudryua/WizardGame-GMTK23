@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
 
 public class AiMovement : MonoBehaviour
@@ -50,80 +51,79 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        freezeYTimer -= Time.deltaTime;
-        if (roomData == null)
-        {
-            roomData = FindAnyObjectByType<RoomData>();
-        }
-        try
-        {
-            curDestinationPos = roomData.currentPlayerGoal;
-            curSpawnPoint = roomData.spawnPoint;
-        }
-        catch(Exception e)
-        {
-            curDestinationPos = new Vector2(transform.position.x, transform.position.y);
-            curSpawnPoint = new Vector2(0, 0);
-        }
-        if (gameEngine.roomStart == true)
-        {
+            timer += Time.deltaTime;
+            freezeYTimer -= Time.deltaTime;
+            if (roomData == null)
+            {
+                roomData = FindAnyObjectByType<RoomData>();
+            }
             try
             {
-                transform.position = curSpawnPoint;
-                gameEngine.roomStart = false;
+                curDestinationPos = roomData.currentPlayerGoal;
+                curSpawnPoint = roomData.spawnPoint;
             }
-            catch(Exception e) { }
-        }
-        if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
-        {
-            Vector3 tempDes = new Vector3(curDestinationPos.x, curDestinationPos.y, 0);
-            bool isValidX = Math.Abs(this.transform.position.x - tempDes.x) <= tolerance;
-            bool isValidY = Math.Abs(this.transform.position.y - tempDes.y) <= toleranceY;
-            if (!isValidX || !isValidY) 
+            catch (Exception e)
             {
-                MoveCharacter(curDestinationPos);
-
+                curDestinationPos = new Vector2(transform.position.x, transform.position.y);
+                curSpawnPoint = new Vector2(0, 0);
             }
-            else if (isValidX && isValidY)
+            if (gameEngine.roomStart == true)
             {
                 try
                 {
-                    roomData.updateCurGoal(roomData.curRouteListIndex + 1);
-                    
+                    transform.position = curSpawnPoint;
+                    gameEngine.roomStart = false;
                 }
-                catch (Exception e)
+                catch (Exception e) { }
+            }
+            if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
+            {
+                Vector3 tempDes = new Vector3(curDestinationPos.x, curDestinationPos.y, 0);
+                bool isValidX = Math.Abs(this.transform.position.x - tempDes.x) <= tolerance;
+                bool isValidY = Math.Abs(this.transform.position.y - tempDes.y) <= toleranceY;
+                if (!isValidX || !isValidY)
                 {
+                    MoveCharacter(curDestinationPos);
                 }
-                finally
+                else if (isValidX && isValidY)
                 {
+                    try
+                    {
+                        roomData.updateCurGoal(roomData.curRouteListIndex + 1);
 
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    finally
+                    {
+
+                    }
                 }
             }
-        }
-        else
-        {
-        }
-        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x > 0)
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(2, 0, 0));
-        }
-        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x < 0)
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 0, 0));
-        }
-        if(isClimbing)
-        {
-            MoveUpLadder();
-        }
-        if (freezeYTimer > 0)
-        {
-            GetComponent<Rigidbody2D>().gravityScale = 0f;
-        }
-        if (freezeYTimer == 0)
-        {
-            GetComponent<Rigidbody2D>().gravityScale = originalGravity;
-        }
+            else
+            {
+            }
+            if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x > 0)
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(2, 0, 0));
+            }
+            if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x == 0 && movementController._moveInput.x < 0)
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 0, 0));
+            }
+            if (isClimbing)
+            {
+                MoveUpLadder();
+            }
+            if (freezeYTimer > 0)
+            {
+                GetComponent<Rigidbody2D>().gravityScale = 0f;
+            }
+            if (freezeYTimer == 0)
+            {
+                GetComponent<Rigidbody2D>().gravityScale = originalGravity;
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
