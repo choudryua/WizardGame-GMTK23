@@ -5,23 +5,29 @@ using UnityEngine.Tilemaps;
 
 public class CollisionHandler : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !collision.isTrigger)
+        if (collision.CompareTag("Enemy"))
         {
-
             Destroy(collision.gameObject);
-        } else if ( collision.CompareTag("Ladder") && collision.isTrigger)
-        {
-            Destroy(collision.gameObject.GetComponent<Tile>());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !collision.isTrigger)
+        if (collision.CompareTag("Enemy"))
         {
-            
+
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
 
 }
