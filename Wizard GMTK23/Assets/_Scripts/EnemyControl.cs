@@ -9,15 +9,27 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] private GameObject _pointA;
     [SerializeField] private GameObject _pointB;
     [SerializeField] private float speed;
+    [SerializeField] private AudioClip _Deathclip;
+
+
+
     private SpriteRenderer sr;
     private Rigidbody2D rb;
+    private string currentAnimaton;
     private Transform currentPoint;
+    private Animator anim;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = _pointB.transform;
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,6 +56,10 @@ public class EnemyControl : MonoBehaviour
             currentPoint = _pointB.transform;
         }
 
+
+
+        ChangeAnimationState("FlyingEnemy");
+
     }
 
     private void Flip()
@@ -58,5 +74,28 @@ public class EnemyControl : MonoBehaviour
         Gizmos.DrawWireSphere(_pointB.transform.position, 0.5f);
         Gizmos.DrawLine(_pointA.transform.position, _pointB.transform.position);
 
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimaton == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimaton = newAnimation;
+    }
+
+
+
+    public void Die()
+    {
+        StartCoroutine(Died());
+    }
+
+    IEnumerator Died()
+    {
+        SoundManager.instance.PlaySound(_Deathclip);
+        ChangeAnimationState("blowUp");
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
     }
 }
