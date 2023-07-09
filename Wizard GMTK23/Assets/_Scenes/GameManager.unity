@@ -670,6 +670,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768253476}
   m_CullTransparentMesh: 1
+--- !u!1 &775949265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 745474098, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+  m_PrefabInstance: {fileID: 5128922375087148587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &799348899 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5128922375634179722, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
@@ -1287,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: familar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775949265}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
       value: 0
@@ -1371,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 745474099, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 799348903, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: gameEngine
@@ -1379,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 243347648}
     - target: {fileID: 1093174858, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128922373743435389, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_Layer

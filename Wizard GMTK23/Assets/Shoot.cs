@@ -6,7 +6,6 @@ public class Shoot : MonoBehaviour
 {
 
     [SerializeField] GameObject _fireball;
-
     private void Start()
     {
         InputHandler.instance.OnShootPressed += args => OnShoot();
@@ -20,7 +19,7 @@ public class Shoot : MonoBehaviour
         } else
         {
             Instantiate(_fireball, new Vector3(transform.position.x + .5f, transform.position.y, transform.position.z), Quaternion.identity);
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
-
     }
 }

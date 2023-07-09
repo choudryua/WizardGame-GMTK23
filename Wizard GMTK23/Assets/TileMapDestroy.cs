@@ -23,6 +23,7 @@ public class TileMapDestroy : MonoBehaviour
             Vector3 hitPosition = FireBall.transform.position + new Vector3(0f, -0.5f, 0f);
             map.SetTile(map.WorldToCell(hitPosition), null);
             SoundManager.instance.PlaySound(_Deathclip);
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
 
     }

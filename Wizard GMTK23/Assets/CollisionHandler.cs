@@ -35,6 +35,7 @@ public class CollisionHandler : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyControl>().Die();
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,6 +50,7 @@ public class CollisionHandler : MonoBehaviour
       if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Destroy(0));
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
     }
 

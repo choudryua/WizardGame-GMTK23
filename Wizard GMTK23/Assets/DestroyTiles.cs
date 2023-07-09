@@ -28,6 +28,8 @@ public class DestroyTiles : MonoBehaviour
                 print(destructableTilemap.WorldToCell(hitPosition));
                 destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
                 SoundManager.instance.PlaySound(_Deathclip);
+                StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+
             }
         }
     }
