@@ -10,6 +10,8 @@ public class CollisionHandler : MonoBehaviour
     private string currentAnimaton;
     private bool isDestroyed;
     private EnemyControl enemyControl;
+    [SerializeField] private AudioClip _Deathclip;
+
 
     private void Awake()
     {

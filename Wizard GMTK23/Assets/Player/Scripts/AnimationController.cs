@@ -15,6 +15,8 @@ public class AnimationController : MonoBehaviour
     public string IDLE_ANIMATION = "Idle";
     public string currentAnimaton;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
