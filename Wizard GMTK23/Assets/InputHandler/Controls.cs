@@ -415,15 +415,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Button"",
-                    ""id"": ""79dc27e7-caec-4ef9-9221-7618eab42d17"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""39ec1aee-6a9f-4b3d-b32e-116d3f17f10b"",
@@ -546,7 +537,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Familar
         m_Familar = asset.FindActionMap("Familar", throwIfNotFound: true);
         m_Familar_Shoot = m_Familar.FindAction("Shoot", throwIfNotFound: true);
-        m_Familar_Move = m_Familar.FindAction("Move", throwIfNotFound: true);
         m_Familar_Menu = m_Familar.FindAction("Menu", throwIfNotFound: true);
     }
 
@@ -822,14 +812,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Familar;
     private List<IFamilarActions> m_FamilarActionsCallbackInterfaces = new List<IFamilarActions>();
     private readonly InputAction m_Familar_Shoot;
-    private readonly InputAction m_Familar_Move;
     private readonly InputAction m_Familar_Menu;
     public struct FamilarActions
     {
         private @Controls m_Wrapper;
         public FamilarActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Familar_Shoot;
-        public InputAction @Move => m_Wrapper.m_Familar_Move;
         public InputAction @Menu => m_Wrapper.m_Familar_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Familar; }
         public void Enable() { Get().Enable(); }
@@ -843,9 +831,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
@@ -856,9 +841,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
@@ -950,7 +932,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IFamilarActions
     {
         void OnShoot(InputAction.CallbackContext context);
-        void OnMove(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }
 }
