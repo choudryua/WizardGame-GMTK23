@@ -31,6 +31,9 @@ public class AnimationController : MonoBehaviour
         {
             animate = false;
             ChangeAnimationState(DESPAWN_ANIMATION);
+        }
+        else
+        {
             animate = true;
         }
         if (animate == true)

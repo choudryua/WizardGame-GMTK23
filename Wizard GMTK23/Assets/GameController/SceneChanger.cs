@@ -63,7 +63,8 @@ public class SceneChanger : MonoBehaviour
 
     public void RestartLevel()
     {
+        print(curGameScene);
         SceneManager.UnloadSceneAsync(curGameScene);
-        SceneManager.LoadSceneAsync(curGameScene);
+        SceneManager.LoadScene(curGameScene);
     }
 }
