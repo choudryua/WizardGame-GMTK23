@@ -56,6 +56,12 @@ public class SceneChanger : MonoBehaviour
         curGameScene = sceneToChangeTo;
         print(curGameScene);
     }
+    IEnumerator SceneSwitchFromObj(string obj)
+    {
+        AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
+        yield return load;
+        SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+    }
     public void QuitGame()
     {
         Application.Quit();
