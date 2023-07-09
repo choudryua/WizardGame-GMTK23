@@ -31,7 +31,7 @@ MonoBehaviour:
   jumpForce: 26.666666
   jumpCutGravityMult: 1
   jumpHangGravityMult: 1
-  jumpHangTimeThreshold: 0
+  jumpHangTimeThreshold: 0.84
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
   wallJumpForce: {x: 50, y: 10}
