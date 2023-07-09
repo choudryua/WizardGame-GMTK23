@@ -14,7 +14,7 @@ public class Shoot : MonoBehaviour
 
     private void OnShoot()
     {
-        Instantiate(_fireball, new Vector3(transform.position.x + 2, transform.position.y, transform.position.z),Quaternion.identity);
+        Instantiate(_fireball, new Vector3(transform.position.x + .5f, transform.position.y, transform.position.z),Quaternion.identity);
 
     }
 }

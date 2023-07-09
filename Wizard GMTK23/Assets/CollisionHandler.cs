@@ -5,7 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] private float TimeToDestroy;
 
+    private void FixedUpdate()
+    {
+        Destroy(gameObject, TimeToDestroy);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -27,6 +32,7 @@ public class CollisionHandler : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 
 
 
