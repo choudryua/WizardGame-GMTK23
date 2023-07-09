@@ -16,6 +16,7 @@ public class GameEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseManager = FindAnyObjectByType<Pause>();
         if (!testing){
             player.GetComponent<Renderer>().enabled = false;
             familar.GetComponent<Renderer>().enabled = false;
