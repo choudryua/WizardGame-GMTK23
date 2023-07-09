@@ -30161,7 +30161,7 @@ GameObject:
   - component: {fileID: 1985796271}
   - component: {fileID: 1985796270}
   - component: {fileID: 1985796274}
-  - component: {fileID: 1985796276}
+  - component: {fileID: 1985796275}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -30285,7 +30285,7 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 8c6b79e4030e1b24bb803173fd2ed864, type: 2}
---- !u!114 &1985796276
+--- !u!114 &1985796275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

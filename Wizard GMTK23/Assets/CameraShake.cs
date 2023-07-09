@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake instance;
-
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;

@@ -844,11 +844,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5128922374440867200, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
   m_PrefabInstance: {fileID: 5128922375087148587}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1331053396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 745474098, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
-  m_PrefabInstance: {fileID: 5128922375087148587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445334889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1297,7 @@ PrefabInstance:
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: familar
       value: 
-      objectReference: {fileID: 1331053396}
+      objectReference: {fileID: 775949265}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
       value: 0
