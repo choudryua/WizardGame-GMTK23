@@ -9889,7 +9889,6 @@ GameObject:
   - component: {fileID: 963562382}
   - component: {fileID: 963562381}
   - component: {fileID: 963562380}
-  - component: {fileID: 963562383}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -9909,9 +9908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243ca4ab74ad0c44a99667c92c5a091c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 963562383}
-  turnSpeed: 200
-  moveSpeed: 10
 --- !u!212 &963562381
 SpriteRenderer:
   m_ObjectHideFlags: 0

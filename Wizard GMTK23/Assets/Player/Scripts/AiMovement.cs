@@ -85,13 +85,11 @@ public class AiMovement : MonoBehaviour
             {
                 try
                 {
-                    print("update point");
                     roomData.updateCurGoal(roomData.curRouteListIndex + 1);
                     
                 }
                 catch (Exception e)
                 {
-                    print("update point");
                 }
                 finally
                 {

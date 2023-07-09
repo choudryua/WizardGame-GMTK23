@@ -54,6 +54,10 @@ public class GameEngine : MonoBehaviour
         player.GetComponent<Renderer>().enabled = true;
         familar.GetComponent<Renderer>().enabled = true;
         isMainMenu = false;
+        Invoke("InvokeRoomStart", 1);
+    }
+    public void InvokeRoomStart()
+    {
         roomStart = true;
     }
     private void OnMenuPressed()

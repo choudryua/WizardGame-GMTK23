@@ -38,6 +38,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void SceneSelect(string sceneToChangeTo)
     {
+        print("scene select ran");
         gameEngine = FindAnyObjectByType<GameEngine>();
         if (sceneToChangeTo == "Level1")
         {
@@ -63,8 +64,16 @@ public class SceneChanger : MonoBehaviour
 
     public void RestartLevel()
     {
+        print("restart ran");
         print(curGameScene);
-        SceneManager.UnloadSceneAsync(curGameScene);
-        SceneManager.LoadScene(curGameScene);
+        StartCoroutine("SceneSwitch");
     }
+
+    IEnumerator SceneSwitch()
+    {
+        AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
+        yield return load;
+        SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+    }
+
 }
