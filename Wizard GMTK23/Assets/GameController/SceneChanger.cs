@@ -38,22 +38,29 @@ public class SceneChanger : MonoBehaviour
     }
     public void SceneSelect(string sceneToChangeTo)
     {
+        gameEngine.roomStart = true;
         print("scene select ran");
         gameEngine = FindAnyObjectByType<GameEngine>();
         if (sceneToChangeTo == "Level1")
         {
+            gameEngine.roomStart = true;
+            SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
+            curGameScene = sceneToChangeTo;
+            gameEngine.roomStart = true;
             gameEngine.GameStart();
         }
-        StartCoroutine(SceneSwitchFromObj(sceneToChangeTo));
+        else
+        {
+            StartCoroutine(SceneSwitchFromObj(sceneToChangeTo));
+        }
     }
     IEnumerator SceneSwitchFromObj(string sceneToChangeTo)
     {
-
+        gameEngine.roomStart = true;
         AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
         yield return load;
         SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
         curGameScene = sceneToChangeTo;
-        gameEngine.roomStart = true;
     }
     public void QuitGame()
     {
@@ -72,6 +79,7 @@ public class SceneChanger : MonoBehaviour
         AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
         yield return load;
         SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+        gameEngine.roomStart = true;
     }
 
 }

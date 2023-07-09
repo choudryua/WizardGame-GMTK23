@@ -258,8 +258,8 @@ MonoBehaviour:
   gameEngine: {fileID: 243347648}
   mainMenuScene: MainMenu
   pauseMenuScene: 
-  testing: 1
-  curGameScene: Level3
+  testing: 0
+  curGameScene: 
 --- !u!114 &243347648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
@@ -1611,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 745474098}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu
@@ -1623,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 243347646}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: mainMenuUnloaded
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 999588845913931140, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: m_RootOrder
@@ -1740,7 +1740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5128922375634179760, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_TagString

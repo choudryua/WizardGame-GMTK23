@@ -68,8 +68,12 @@ public class AiMovement : MonoBehaviour
         }
         if (gameEngine.roomStart == true)
         {
-            transform.position = curSpawnPoint;
-            gameEngine.roomStart = false;
+            try
+            {
+                transform.position = curSpawnPoint;
+                gameEngine.roomStart = false;
+            }
+            catch(Exception e) { }
         }
         if (!Physics2D.OverlapBox(destinationCheckTransform.position, destinationCheckSize, 0, destinationLayer))
         {
