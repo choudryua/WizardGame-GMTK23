@@ -11,7 +11,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 public class SceneChanger : MonoBehaviour
 {
     public GameEngine gameEngine;
-
+    public Rigidbody2D playerRG;
     [SerializeField]
     private string mainMenuScene;
     [SerializeField]
@@ -38,7 +38,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void SceneSelect(string sceneToChangeTo)
     {
-        gameEngine.roomStart = true;
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         print("scene select ran");
         gameEngine = FindAnyObjectByType<GameEngine>();
         if (sceneToChangeTo == "Level1")
@@ -56,13 +56,16 @@ public class SceneChanger : MonoBehaviour
     }
     IEnumerator SceneSwitchFromObj(string sceneToChangeTo)
     {
-        gameEngine.roomStart = true;
         AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
         yield return load;
         SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
         curGameScene = sceneToChangeTo;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         gameEngine.roomStart = true;
+        yield return new WaitForSeconds(1);
+        playerRG.velocity = new Vector3(0,0,0);
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     public void QuitGame()
     {
