@@ -14,7 +14,13 @@ public class Shoot : MonoBehaviour
 
     private void OnShoot()
     {
-        Instantiate(_fireball, new Vector3(transform.position.x + .5f, transform.position.y, transform.position.z),Quaternion.identity);
+        if (GameObject.Find("FireBall(Clone)") != null)
+        {
+            print("fireball active");
+        } else
+        {
+            Instantiate(_fireball, new Vector3(transform.position.x + .5f, transform.position.y, transform.position.z), Quaternion.identity);
+        }
 
     }
 }

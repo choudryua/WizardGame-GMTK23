@@ -7,6 +7,9 @@ public class DestroyTiles : MonoBehaviour
 {
     Tilemap destructableTilemap;
 
+    [SerializeField] private AudioClip _Deathclip;
+
+
     private void Start()
     {
         destructableTilemap = GetComponent<Tilemap>();
@@ -24,6 +27,7 @@ public class DestroyTiles : MonoBehaviour
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                 print(destructableTilemap.WorldToCell(hitPosition));
                 destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
+                SoundManager.instance.PlaySound(_Deathclip);
             }
         }
     }

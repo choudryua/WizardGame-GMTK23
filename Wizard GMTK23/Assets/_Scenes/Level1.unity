@@ -5509,6 +5509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e113e8a2f7d34af4484270449be6c2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Deathclip: {fileID: 0}
 --- !u!19719996 &455166421
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -10233,6 +10234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e113e8a2f7d34af4484270449be6c2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Deathclip: {fileID: 8300000, guid: edd958c77b25e034496a42ad0dd1fa71, type: 3}
 --- !u!1 &1019047160
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class TileMapDestroy : MonoBehaviour
 {
+    [SerializeField] private AudioClip _Deathclip;
     private Tilemap map;
 
     private void Start()
@@ -21,6 +22,7 @@ public class TileMapDestroy : MonoBehaviour
 
             Vector3 hitPosition = FireBall.transform.position + new Vector3(0f, -0.5f, 0f);
             map.SetTile(map.WorldToCell(hitPosition), null);
+            SoundManager.instance.PlaySound(_Deathclip);
         }
 
     }
