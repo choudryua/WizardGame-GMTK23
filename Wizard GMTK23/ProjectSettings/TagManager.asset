@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ladder
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -17,11 +18,11 @@ TagManager:
   - Background
   - Destinations
   - Enemy
+  - Attack
+  - 
+  - 
+  - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2219071895
+    locked: 0
+  - name: Attack
+    uniqueID: 4281702187
     locked: 0
