@@ -44,6 +44,17 @@ public class MousePosition : MonoBehaviour
    public Rigidbody2D rb;
     public float turnSpeed = 45;
     public float moveSpeed = 5;
+
+    public float lerpedValue;
+    public float duration;
+
+
+    private void Start()
+    {
+        StartCoroutine(LerpValue(2, 20));
+    }
+
+
     void FixedUpdate()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -56,6 +67,23 @@ public class MousePosition : MonoBehaviour
 
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(targetRotation), turnSpeed * Time.deltaTime));
 
-        rb.MovePosition(rb.position + ((Vector2)transform.right * moveSpeed * Time.deltaTime));
+        rb.MovePosition(rb.position + ((Vector2)transform.right * lerpedValue * Time.deltaTime));
+    }
+
+
+    IEnumerator LerpValue(float start, float end)
+    {
+        float timeElapsed = 0;
+
+        while (timeElapsed < duration)
+        {
+            float t = timeElapsed / duration;
+            lerpedValue = Mathf.Lerp(start, end, t);
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        lerpedValue = end;
     }
 }
