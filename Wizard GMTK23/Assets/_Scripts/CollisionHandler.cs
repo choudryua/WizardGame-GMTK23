@@ -39,6 +39,8 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+
+
     IEnumerator Destroy(float deathTime)
     {
         ChangeAnimationState("fireball");
