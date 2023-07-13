@@ -1428,6 +1428,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 745474102, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745474102, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: smoothTime
       value: 0.3
       objectReference: {fileID: 0}
@@ -1435,6 +1439,10 @@ PrefabInstance:
       propertyPath: maxTurnSpeed
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 745474103, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 634597085}
     - target: {fileID: 799348903, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: gameEngine
       value: 

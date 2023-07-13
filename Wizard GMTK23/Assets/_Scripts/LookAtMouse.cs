@@ -7,8 +7,14 @@ public class LookAtMouse : MonoBehaviour
 {
     public float maxTurnSpeed = 90;
     public float smoothTime = 0.3f;
+
+
     float angle;
     float currentVelocity;
+
+
+
+
     void Update()
     {
         try
@@ -23,5 +29,10 @@ public class LookAtMouse : MonoBehaviour
         {
 
         }
+
+
+        
     }
+
+
 }

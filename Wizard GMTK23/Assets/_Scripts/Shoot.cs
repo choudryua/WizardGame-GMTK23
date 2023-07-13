@@ -6,9 +6,19 @@ public class Shoot : MonoBehaviour
 {
 
     [SerializeField] GameObject _fireball;
+    [SerializeField] GameObject _player;
+
+    private bool ignore;
+
+
+
+
     private void Start()
     {
         InputHandler.instance.OnShootPressed += args => OnShoot();
+        ignore = true;
+        Physics2D.IgnoreLayerCollision(3, 10, true);
+
     }
 
     private void OnShoot()
