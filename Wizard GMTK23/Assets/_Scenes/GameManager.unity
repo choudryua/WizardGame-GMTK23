@@ -1300,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 775949265}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: roomStart
@@ -1316,7 +1316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: mainMenuUnloaded
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243347646, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: PausePanel
@@ -1328,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 1237229532}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: playerRG
