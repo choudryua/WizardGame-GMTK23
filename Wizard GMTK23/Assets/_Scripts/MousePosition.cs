@@ -42,16 +42,15 @@ public class MousePosition : MonoBehaviour
     //}
 
    public Rigidbody2D rb;
-    public float turnSpeed = 45;
-    public float moveSpeed = 5;
-
+    public float turnSpeed;
     public float lerpedValue;
     public float duration;
+    public AnimationCurve animCurve;
 
 
     private void Start()
     {
-        StartCoroutine(LerpValue(2, 20));
+        StartCoroutine(LerpValue(8, 18));
     }
 
 
@@ -77,7 +76,9 @@ public class MousePosition : MonoBehaviour
 
         while (timeElapsed < duration)
         {
+
             float t = timeElapsed / duration;
+            t = animCurve.Evaluate(t);
             lerpedValue = Mathf.Lerp(start, end, t);
             timeElapsed += Time.deltaTime;
 

@@ -273,10 +273,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4006462405812541793}
-  turnSpeed: 1000
-  moveSpeed: 15
+  turnSpeed: 800
   lerpedValue: 0
-  duration: 2
+  duration: 3
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5045068
+      value: 0.76931435
+      inSlope: 1.4999993
+      outSlope: 1.4999993
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.73837197
+      value: 0.9602813
+      inSlope: 0.47461233
+      outSlope: 0.47461233
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!50 &4006462405812541793
 Rigidbody2D:
   serializedVersion: 4
@@ -293,7 +334,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6cf6d3d85f4e6341a551dd5755394d4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -333,7 +374,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.4257407, y: 1.4257407}
+  m_Size: {x: 1.505743, y: 1.505743}
   m_Direction: 0
 --- !u!96 &4006462405457243716
 TrailRenderer:
@@ -455,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd2550321a147747a73178d792fd3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToDestroy: 2
+  TimeToDestroy: 3
   _Deathclip: {fileID: 0}
 --- !u!1 &4006462406243039850
 GameObject:

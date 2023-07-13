@@ -38,21 +38,6 @@ public class CollisionHandler : MonoBehaviour
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-      if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(Destroy(0));
-            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
-        }
-    }
 
     IEnumerator Destroy(float deathTime)
     {
