@@ -1,12 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem.Android.LowLevel;
-using UnityEngine.Rendering;
-using System;
-using Unity.PlasticSCM.Editor.WebApi;
 
 public class SceneChanger : MonoBehaviour
 {
