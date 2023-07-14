@@ -54,7 +54,7 @@ public class SceneChanger : MonoBehaviour
         yield return load;
         SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
         curGameScene = sceneToChangeTo;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForFixedUpdate();
         gameEngine.roomStart = true;
         yield return new WaitForSeconds(1);
         playerRG.velocity = new Vector3(0,0,0);
