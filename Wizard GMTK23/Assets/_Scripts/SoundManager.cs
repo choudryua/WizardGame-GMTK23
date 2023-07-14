@@ -21,7 +21,14 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
-        _effectsSource.PlayOneShot(clip);
+        try
+        {
+            _effectsSource.PlayOneShot(clip);
+        }
+        catch (System.Exception e)
+        {
+            print(e.ToString());
+        }
     }
 
     public void StopSound(AudioClip clip)
