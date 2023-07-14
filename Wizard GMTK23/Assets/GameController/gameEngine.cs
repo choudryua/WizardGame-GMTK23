@@ -50,18 +50,18 @@ public class GameEngine : MonoBehaviour
 
     public void GameStart()
     {
+        player.SetActive(true);
+        player.GetComponent<Renderer>().enabled = true;
+        familar.GetComponent<Renderer>().enabled = true;
         Invoke("InvokeRoomStart",1);
     }
     public void InvokeRoomStart()
     {
-        player.SetActive(true);
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         isPaused = false;
-        player.GetComponent<Renderer>().enabled = true;
-        familar.GetComponent<Renderer>().enabled = true;
         isMainMenu = false;
         roomStart = true;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     private void OnMenuPressed()
     {

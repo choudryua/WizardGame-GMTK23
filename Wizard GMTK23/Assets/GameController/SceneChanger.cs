@@ -27,21 +27,15 @@ public class SceneChanger : MonoBehaviour
     }
     public void OnClick(string newScene)
     {
-        print("please");
         SceneSelect(newScene);
     }
     public void SceneSelect(string sceneToChangeTo)
     {
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        print("scene select ran");
         gameEngine = FindAnyObjectByType<GameEngine>();
         if (sceneToChangeTo == "Level1")
         {
-            gameEngine.roomStart = true;
-            SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
-            curGameScene = sceneToChangeTo;
-            gameEngine.roomStart = true;
-            gameEngine.GameStart();
+            StartCoroutine(Level1Switching("Level1"));
         }
         else
         {
@@ -50,16 +44,26 @@ public class SceneChanger : MonoBehaviour
     }
     IEnumerator SceneSwitchFromObj(string sceneToChangeTo)
     {
-        AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
-        yield return load;
-        SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
-        curGameScene = sceneToChangeTo;
-        yield return new WaitForFixedUpdate();
+        playerRG.velocity = new Vector3(0, 0, 0);
         gameEngine.roomStart = true;
-        yield return new WaitForSeconds(1);
+        AsyncOperation unLoad = SceneManager.UnloadSceneAsync(curGameScene);
+        yield return unLoad;
+        AsyncOperation load = SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
+        yield return load;
+        curGameScene = sceneToChangeTo;
+        gameEngine.roomStart = true;
         playerRG.velocity = new Vector3(0,0,0);
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    IEnumerator Level1Switching(string sceneToChangeTo)
+    {
+        AsyncOperation load = SceneManager.LoadSceneAsync(sceneToChangeTo, LoadSceneMode.Additive);
+        yield return load;
+        curGameScene = sceneToChangeTo;
+        gameEngine.roomStart = true;
+        gameEngine.GameStart();
     }
     public void QuitGame()
     {
