@@ -323,11 +323,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: b6cf6d3d85f4e6341a551dd5755394d4, type: 2}
+  m_Material: {fileID: 6200000, guid: 9d325f50937ef1a4aa0d89434176ddf0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
