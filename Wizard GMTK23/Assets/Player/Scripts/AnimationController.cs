@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class AnimationController : MonoBehaviour
 {
@@ -10,17 +12,23 @@ public class AnimationController : MonoBehaviour
     private MovementController movementController;
     private bool animate;
     //declare animations
-    public string RUN_ANIMATION = "Run";
+    [SerializeField]
+    private string RUN_ANIMATION = "Run";
     /*    public string FALL_ANIMATION = "Fall";*/
-    public string DESPAWN_ANIMATION = "Death";
-    public string IDLE_ANIMATION = "Idle";
-    public string currentAnimaton;
+    [SerializeField]
+    private string DESPAWN_ANIMATION = "Death";
+    [SerializeField]
+    private string IDLE_ANIMATION = "Idle";
+    private string currentAnimaton;
 
+    [SerializeField]
+    private GameObject familiar;
 
-
+    private bool facingRight;
     // Start is called before the first frame update
     void Start()
     {
+        facingRight = true;
         animate = true;
         currentAnimaton = IDLE_ANIMATION;
         anim = GetComponent<Animator>();
@@ -47,14 +55,23 @@ public class AnimationController : MonoBehaviour
     }
     void MovePlayerFacing()
     {
-        if (movementController._moveInput.x > 0)
+        if (movementController._moveInput.x > 0 && facingRight == false)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            Flip();
         }
-        else if (movementController._moveInput.x < 0)
+        else if (movementController._moveInput.x < 0 && facingRight == true)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            Flip();
         }
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+
+        facingRight = !facingRight;
     }
     void AnimatePlayer()
     {

@@ -756,7 +756,7 @@ MonoBehaviour:
   RUN_ANIMATION: Run
   DESPAWN_ANIMATION: Death
   IDLE_ANIMATION: Idle
-  currentAnimaton: 
+  familiar: {fileID: 775949265}
 --- !u!50 &799348910 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5128922375634179764, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
@@ -1739,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 745474099, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 745474099, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: m_LocalPosition.y
