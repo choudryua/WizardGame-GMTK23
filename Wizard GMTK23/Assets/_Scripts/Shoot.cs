@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
             print("fireball active");
         } else
         {
-            Instantiate(_fireball, new Vector3(transform.position.x + .1f, transform.position.y + .2f, transform.position.z), Quaternion.identity);
+            Instantiate(_fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
         }
     }
