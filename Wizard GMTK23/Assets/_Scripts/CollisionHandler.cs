@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class CollisionHandler : MonoBehaviour
@@ -25,6 +26,7 @@ public class CollisionHandler : MonoBehaviour
     private void FixedUpdate()
     {
         StartCoroutine(Destroy(TimeToDestroy));
+        
     }
 
 

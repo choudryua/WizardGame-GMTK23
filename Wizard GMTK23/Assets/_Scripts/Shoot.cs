@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
             print("fireball active");
         } else
         {
-            Instantiate(_fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(_fireball, transform.position, Quaternion.identity);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
             SoundManager.instance.PlaySound(_fireClip);
 
