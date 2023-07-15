@@ -25,6 +25,7 @@ public class LevelChangerObj : MonoBehaviour
         {
             hasSwitched = true;
             sceneChanger.SceneSelect(sceneToChangeTo);
+            destroyFireBall();
         }
     }
     // Update is called once per frame
@@ -46,5 +47,15 @@ public class LevelChangerObj : MonoBehaviour
     }*/
     public void OnClick()
     {
+    }
+
+
+    // DESTROY FIREBALL
+    private void destroyFireBall()
+    {
+        if (GameObject.Find("FireBall(Clone)") != null)
+        {
+            Destroy(GameObject.Find("FireBall(Clone)"));
+        }
     }
 }
