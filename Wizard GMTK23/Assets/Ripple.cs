@@ -13,6 +13,7 @@ public class Ripple : MonoBehaviour
     private void Start()
     {
         rend = GetComponent<Renderer>();
+        Destroy(gameObject, 1.5f);
     }
 
     private void FixedUpdate()
