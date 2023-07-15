@@ -26,7 +26,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - CameraSortingLayer
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: Attack
     uniqueID: 4281702187
+    locked: 0
+  - name: CameraSortingLayer
+    uniqueID: 2314953105
     locked: 0

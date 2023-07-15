@@ -175,6 +175,8 @@ public class AiMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+
 
         }
     }
@@ -218,6 +220,8 @@ public class AiMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+
 
         }
     }

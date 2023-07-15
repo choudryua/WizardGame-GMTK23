@@ -18225,6 +18225,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[18].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 3692004177374911946, guid: a1c856cd1f130344a9203f91d2711e5a, type: 3}
+      propertyPath: _Deathclip
+      value: 
+      objectReference: {fileID: 8300000, guid: edd958c77b25e034496a42ad0dd1fa71, type: 3}
     - target: {fileID: 3692004177374911948, guid: a1c856cd1f130344a9203f91d2711e5a, type: 3}
       propertyPath: m_Name
       value: Tilemap-Enemy

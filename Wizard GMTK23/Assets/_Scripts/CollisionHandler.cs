@@ -13,6 +13,7 @@ public class CollisionHandler : MonoBehaviour
     private EnemyControl enemyControl;
     [SerializeField] private AudioClip _Deathclip;
 
+    [SerializeField] GameObject _ripple;
 
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class CollisionHandler : MonoBehaviour
         {
             collision.GetComponent<EnemyControl>().Die();
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+            Instantiate(_ripple, transform.position, Quaternion.identity);
+
         }
     }
 
