@@ -7,6 +7,8 @@ public class Shoot : MonoBehaviour
 
     [SerializeField] GameObject _fireball;
     [SerializeField] GameObject _player;
+    [SerializeField] private AudioClip _fireClip;
+
 
     private bool ignore;
 
@@ -30,6 +32,8 @@ public class Shoot : MonoBehaviour
         {
             Instantiate(_fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+            SoundManager.instance.PlaySound(_fireClip);
+
         }
     }
 }

@@ -1769,6 +1769,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 634597085}
+    - target: {fileID: 745474103, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
+      propertyPath: _fireClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 220ef8f1bedbed240b3014b73983fef9, type: 3}
     - target: {fileID: 799348903, guid: f278c48e3ff65da4cb90a8c74732ae93, type: 3}
       propertyPath: gameEngine
       value: 
