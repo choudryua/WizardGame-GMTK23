@@ -40,6 +40,9 @@ public class AiMovement : MonoBehaviour
     bool isClimbing = false;
     float originalGravity;
     private float isClimbingTimer;
+
+    [SerializeField] private AudioClip _deathClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -171,6 +174,8 @@ public class AiMovement : MonoBehaviour
             isRespawning = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             Invoke("ResetLevelAfterDelay", 3);
+            SoundManager.instance.PlaySound(_deathClip);
+
         }
     }
 
@@ -212,6 +217,8 @@ public class AiMovement : MonoBehaviour
             isRespawning = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             Invoke("ResetLevelAfterDelay", 3);
+            SoundManager.instance.PlaySound(_deathClip);
+
         }
     }
     private void ResetLevelAfterDelay()

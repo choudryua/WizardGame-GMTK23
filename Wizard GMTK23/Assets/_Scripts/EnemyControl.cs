@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] private GameObject _pointB;
     [SerializeField] private float speed;
     [SerializeField] private AudioClip _Deathclip;
+    [SerializeField] private ParticleSystem _expo;
 
 
 
@@ -94,6 +95,7 @@ public class EnemyControl : MonoBehaviour
     IEnumerator Died()
     {
         SoundManager.instance.PlaySound(_Deathclip);
+        _expo.Play();
         ChangeAnimationState("blowUp");
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(.5f);

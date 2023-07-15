@@ -21,6 +21,8 @@ public class AnimationController : MonoBehaviour
     private string IDLE_ANIMATION = "Idle";
     private string currentAnimaton;
 
+
+
     [SerializeField]
     private GameObject familiar;
 

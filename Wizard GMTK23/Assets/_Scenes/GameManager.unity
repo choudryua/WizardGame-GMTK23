@@ -713,6 +713,7 @@ MonoBehaviour:
     m_Bits: 256
   enemyTag: Enemy
   curSpawnPoint: {x: 0, y: 0}
+  _deathClip: {fileID: 8300000, guid: 96db19ab7e2f64441b6c472518a8ae38, type: 3}
 --- !u!70 &799348907
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

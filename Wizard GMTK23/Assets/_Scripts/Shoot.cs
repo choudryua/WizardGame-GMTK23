@@ -36,4 +36,14 @@ public class Shoot : MonoBehaviour
 
         }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyControl>().Die();
+            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+        }
+    }
 }
