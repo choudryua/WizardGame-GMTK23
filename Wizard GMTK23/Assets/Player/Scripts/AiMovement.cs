@@ -166,7 +166,7 @@ public class AiMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ladder") && collision.isTrigger)
         {
-            isClimbing= false;
+            isClimbing = false;
             freezeYTimer = .5f;
         }
         if (collision.gameObject.CompareTag(enemyTag))
@@ -176,7 +176,7 @@ public class AiMovement : MonoBehaviour
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
-
+            destroyFireBall();
 
         }
     }
@@ -221,6 +221,7 @@ public class AiMovement : MonoBehaviour
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+            destroyFireBall();
 
 
         }
@@ -237,5 +238,15 @@ public class AiMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(destinationCheckTransform.position, destinationCheckSize);
+    }
+
+
+    //destroy fireball
+    private void destroyFireBall()
+    {
+        if (GameObject.Find("FireBall(Clone)") != null)
+        {
+            Destroy(GameObject.Find("FireBall(Clone)"));
+        }
     }
 }
