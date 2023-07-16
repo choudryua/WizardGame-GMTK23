@@ -41,11 +41,13 @@ public class AiMovement : MonoBehaviour
     float originalGravity;
     private float isClimbingTimer;
 
+    private bool isDead;
     [SerializeField] private AudioClip _deathClip;
 
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         isRespawning = false;
         originalGravity = GetComponent<Rigidbody2D>().gravityScale;
         roomData = FindAnyObjectByType<RoomData>();
@@ -169,10 +171,11 @@ public class AiMovement : MonoBehaviour
             isClimbing = false;
             freezeYTimer = .5f;
         }
-        if (collision.gameObject.CompareTag(enemyTag))
+        if (collision.gameObject.CompareTag(enemyTag) && !isDead)
         {
             isRespawning = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            isDead = true;
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
@@ -214,10 +217,11 @@ public class AiMovement : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(enemyTag))
+        if (collision.gameObject.CompareTag(enemyTag) && !isDead)
         {
             isRespawning = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            isDead = true;
             Invoke("ResetLevelAfterDelay", 3);
             SoundManager.instance.PlaySound(_deathClip);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
@@ -232,6 +236,7 @@ public class AiMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         FindAnyObjectByType<SceneChanger>().RestartLevel();
+        isDead = false;
         print("oohnoo :3");
     }
     private void OnDrawGizmosSelected()
