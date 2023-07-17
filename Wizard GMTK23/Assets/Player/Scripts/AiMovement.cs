@@ -104,6 +104,7 @@ public class AiMovement : MonoBehaviour
             {
                 transform.position = curSpawnPoint;
                 gameEngine.roomStart = false;
+                isClimbing = false;
             }
             catch (Exception e) { }
         }
@@ -173,14 +174,7 @@ public class AiMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag(enemyTag) && !isDead)
         {
-            isRespawning = true;
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            isDead = true;
-            Invoke("ResetLevelAfterDelay", 3);
-            SoundManager.instance.PlaySound(_deathClip);
-            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
-            destroyFireBall();
-
+            Respawn();
         }
     }
 
@@ -219,17 +213,21 @@ public class AiMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(enemyTag) && !isDead)
         {
-            isRespawning = true;
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            isDead = true;
-            Invoke("ResetLevelAfterDelay", 3);
-            SoundManager.instance.PlaySound(_deathClip);
-            StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
-            destroyFireBall();
-
-
+            Respawn();
         }
     }
+
+    public void Respawn()
+    {
+        isRespawning = true;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        isDead = true;
+        Invoke("ResetLevelAfterDelay", 3);
+        SoundManager.instance.PlaySound(_deathClip);
+        StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
+        destroyFireBall();
+    }
+
     private void ResetLevelAfterDelay()
     {
         isRespawning = false;

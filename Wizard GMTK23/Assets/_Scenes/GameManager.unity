@@ -775,6 +775,7 @@ GameObject:
   - component: {fileID: 1097010975}
   - component: {fileID: 1097010974}
   - component: {fileID: 1097010973}
+  - component: {fileID: 1097010976}
   m_Layer: 5
   m_Name: Reset
   m_TagString: Untagged
@@ -847,8 +848,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnpauseButton, Assembly-CSharp
+      - m_Target: {fileID: 1097010976}
+        m_TargetAssemblyTypeName: BtnInvokeForRestart, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -897,6 +898,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097010970}
   m_CullTransparentMesh: 1
+--- !u!114 &1097010976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097010970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05e9dc265a328649aa3089febe4acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 799348903}
 --- !u!1 &1237229532
 GameObject:
   m_ObjectHideFlags: 0
