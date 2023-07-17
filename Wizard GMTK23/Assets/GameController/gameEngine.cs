@@ -35,7 +35,7 @@ public class GameEngine : MonoBehaviour
         }
         InputHandler.instance.OnMenuPressed += args => OnMenuPressed();
         InputHandler.instance.OnPlayerPressed += args => OnPlayerPressed();
-        //InputHandler.instance.OnPlayerPressed += args => OnRestartPressed();
+        InputHandler.instance.OnRestartPressed += args => OnRestartPressed();
     }
 
     // Update is called once per frame
@@ -81,8 +81,8 @@ public class GameEngine : MonoBehaviour
         }
     }
 
-/*    public void OnRestartPressed()
+    public void OnRestartPressed()
     {
-        GetComponent<SceneChanger>().RestartLevel();
-    }*/
+        player.GetComponent<AiMovement>().Respawn();
+    }
 }

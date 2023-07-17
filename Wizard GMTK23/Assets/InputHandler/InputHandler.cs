@@ -112,7 +112,7 @@ public class InputHandler : MonoBehaviour
         #region Familar
         controls.Familar.Menu.performed += ctx => OnMenuPressed(new InputArgs { context = ctx }); //to menu
         controls.Familar.Shoot.performed += ctx => OnShootPressed(new InputArgs { context = ctx }); // shoot
-        //controls.Familar.Restart.performed += ctx => OnRestartPressed(new InputArgs { context = ctx }); //restart
+        controls.Familar.Restart.performed += ctx => OnRestartPressed(new InputArgs { context = ctx }); //restart
         #endregion
 
         #endregion
@@ -132,8 +132,8 @@ public class InputHandler : MonoBehaviour
         }
         else if (!gameEngine.isPaused) 
         {
-            instance.controls.Familar.Enable();
             instance.controls.Menu.Disable();
+            instance.controls.Familar.Enable();
         }
     }
 
