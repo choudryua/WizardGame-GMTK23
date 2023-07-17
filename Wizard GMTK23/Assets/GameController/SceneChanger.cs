@@ -53,6 +53,8 @@ public class SceneChanger : MonoBehaviour
         curGameScene = sceneToChangeTo;
         gameEngine.roomStart = true;
         playerRG.velocity = new Vector3(0,0,0);
+        yield return new WaitForSeconds(2);
+        gameEngine.roomStart = true;
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
@@ -74,15 +76,24 @@ public class SceneChanger : MonoBehaviour
     {
         print("restart ran");
         print(curGameScene);
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         StartCoroutine("SceneSwitch");
     }
 
     IEnumerator SceneSwitch()
     {
-        AsyncOperation load = SceneManager.UnloadSceneAsync(curGameScene);
-        yield return load;
-        SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+        playerRG.velocity = new Vector3(0, 0, 0);
         gameEngine.roomStart = true;
+        AsyncOperation unload = SceneManager.UnloadSceneAsync(curGameScene);
+        yield return unload;
+        AsyncOperation load = SceneManager.LoadSceneAsync(curGameScene, LoadSceneMode.Additive);
+        yield return load;
+        gameEngine.roomStart = true;
+        playerRG.velocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(2);
+        gameEngine.roomStart = true;
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
 }

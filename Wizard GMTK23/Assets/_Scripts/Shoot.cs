@@ -8,7 +8,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject _fireball;
     [SerializeField] GameObject _player;
     [SerializeField] private AudioClip _fireClip;
-
+    [SerializeField] private AiMovement playerController;
 
     private bool ignore;
 
@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
         if (GameObject.Find("FireBall(Clone)") != null)
         {
             print("fireball active");
-        } else
+        } else if(playerController.isRespawning == false)
         {
             Instantiate(_fireball, transform.position, Quaternion.identity);
             StartCoroutine(CameraShake.instance.Shake(.10f, .2f));
