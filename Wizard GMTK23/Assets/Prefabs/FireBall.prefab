@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4006462405812541793}
-  turnSpeed: 800
+  turnSpeed: 700
   lerpedValue: 0
   duration: 3
   animCurve:

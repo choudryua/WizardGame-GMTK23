@@ -50,7 +50,7 @@ public class MousePosition : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(LerpValue(7, 17));
+        StartCoroutine(LerpValue(5, 18));
     }
 
 

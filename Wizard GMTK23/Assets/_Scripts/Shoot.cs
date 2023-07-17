@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -8,7 +9,6 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject _fireball;
     [SerializeField] GameObject _player;
     [SerializeField] private AudioClip _fireClip;
-
 
     private bool ignore;
 
