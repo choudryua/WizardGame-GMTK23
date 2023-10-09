@@ -14,12 +14,17 @@ public class SceneChanger : MonoBehaviour
     private bool testing;
     [SerializeField]
     public string curGameScene;
+    public bool firstLevel1Loaded;
     private void Start()
     {
         if(!testing)
         {
-            SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
+            LoadMainMenu();
         }
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
     }
     void Update()
     {
@@ -66,6 +71,7 @@ public class SceneChanger : MonoBehaviour
         curGameScene = sceneToChangeTo;
         gameEngine.roomStart = true;
         gameEngine.GameStart();
+        firstLevel1Loaded = true;
     }
     public void QuitGame()
     {
@@ -94,6 +100,18 @@ public class SceneChanger : MonoBehaviour
         gameEngine.roomStart = true;
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         playerRG.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public void UnloadLastLevel()
+    {
+        StartCoroutine("UnloadLastLevelRoutine");
+    }
+
+    IEnumerator UnloadLastLevelRoutine()
+    {
+        print(curGameScene);
+        AsyncOperation unload = SceneManager.UnloadSceneAsync(curGameScene);
+        yield return unload;
     }
 
 }

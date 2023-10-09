@@ -1630,6 +1630,7 @@ GameObject:
   - component: {fileID: 1554224015}
   - component: {fileID: 1554224014}
   - component: {fileID: 1554224013}
+  - component: {fileID: 1554224016}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -1741,6 +1742,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554224011}
   m_CullTransparentMesh: 1
+--- !u!114 &1554224016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554224011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda9a50832bab844ea37ec10d27dab8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToChangeTo: 
+  playerTag: 
 --- !u!1 &1618401954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,23 +2400,31 @@ PrefabInstance:
       objectReference: {fileID: 775949265}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: roomStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: isMainMenu
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 1237229532}
+    - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
+      propertyPath: EndScreenPanel
+      value: 
+      objectReference: {fileID: 2137497851}
+    - target: {fileID: -7890713620169628134, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: mainMenuUnloaded
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243347646, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: PausePanel
@@ -2413,12 +2436,16 @@ PrefabInstance:
       objectReference: {fileID: 1237229532}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: testing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: playerRG
       value: 
       objectReference: {fileID: 799348910}
+    - target: {fileID: 243347647, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
+      propertyPath: curGameScene
+      value: Level5
+      objectReference: {fileID: 0}
     - target: {fileID: 999588845913931140, guid: 66374e1c8a6460848bee377ae95598a5, type: 3}
       propertyPath: m_RootOrder
       value: 1
