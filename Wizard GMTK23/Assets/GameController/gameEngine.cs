@@ -112,4 +112,9 @@ public class GameEngine : MonoBehaviour
         GameStart();
         sceneManager.LoadMainMenu();
     }
+
+    public void RestartGame()
+    {
+
+    }
 }

@@ -42,7 +42,10 @@ public class SceneChanger : MonoBehaviour
         {
             StartCoroutine(Level1Switching("Level1"));
         }
-        else
+        else if(sceneToChangeTo == "Level1!")
+        {
+            StartCoroutine(SceneSwitchFromObj("Level1"));
+        } else
         {
             StartCoroutine(SceneSwitchFromObj(sceneToChangeTo));
         }

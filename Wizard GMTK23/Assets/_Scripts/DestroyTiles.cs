@@ -45,7 +45,6 @@ public class DestroyTiles : MonoBehaviour
             {
                 hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                print(destructableTilemap.WorldToCell(hitPosition));
                 destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
             }
 
@@ -63,7 +62,6 @@ public class DestroyTiles : MonoBehaviour
             {
                 hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                print(destructableTilemap.WorldToCell(hitPosition));
                 destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
             }
 
